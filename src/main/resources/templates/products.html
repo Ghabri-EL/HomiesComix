@@ -7,11 +7,38 @@
 </head>
 <body>
     <div class="mainContainer">
-        <a href="#home"><img class="logo" src="../static/images/logo.png" alt="Shopping Cart"> </a>
-        <li><a class="cartImage" href="#cart"><img src="../static/images/cart.png" alt="Shopping Cart" width="40px" height="40px"></a></li>
-        <li><a href="#signup">Sign up/Login</a></li>
-        <li><a href="#sell">Sell</a></li>
-        <li><a href="#products">Products</a></li>
+        <ul>
+            <a href="#home"><img class="logo" src="../static/images/logo.png" alt="Shopping Cart"> </a>
+            <li><a class="cartImage" href="#cart"><img src="../static/images/cart.png" alt="Shopping Cart" width="40px" height="40px"></a></li>
+            <li><a href="#signup">Sign up/Login</a></li>
+            <li><a href="#sell">Sell</a></li>
+            <div class="dropdown">
+                <button class="dropButton" href="#products">Products</button>
+                <div class="dropdownContent">
+                    <a href="#tables">Tables</a>
+                    <a href="#chairs">Chairs</a>
+                    <a href="#couches">Couches</a>
+                </div>
+            </div>
+        </ul>
     </div>
+
+    <table class="mainContainer" align="center">
+        <tr>
+            <th class="latestProductsTxt" colspan="4">New In the Shop</th>
+        </tr>
+        <tr>
+            <th>Product_1</th>
+            <th>Product_2</th>
+            <th>Product_3</th>
+            <th>Product_4</th>
+        </tr>
+        <tr>
+            <td class="productsCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+            <td class="productsCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+            <td class="productsCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+            <td class="productsCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+        </tr>
+    </table>
 </body>
 </html>
