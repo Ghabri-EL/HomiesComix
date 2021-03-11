@@ -9,7 +9,7 @@
     <title>Home</title>
 </head>
 <body>
-    <div class="mainContainer">
+    <div >
         <ul>
             <a href="#home"><img class="logo" src="../static/images/logo.png" alt="Shopping Cart"> </a>
             <li><a class="cartImage" href="#cart"><img src="../static/images/cart.png" alt="Shopping Cart" width="40px" height="40px"></a></li>
@@ -25,30 +25,25 @@
             </div>
         </ul>
 
-        <img src="../static/images/shop-from-home.jpg" alt="Shopping Cart" width="100%" height="100%">
+        <img src="../static/images/shop-from-home.jpg" alt="Shopping Cart" width="100%" height="80%">
 
-        <h2 class="latestProductsTxt">New In The Shop</h2>
-
-        <div class="row">
-            <div class="column">
-                <img src="../static/images/tmpImage.jpg" alt="Item_1" style="width:100%" onclick="newProducts(this);">
-            </div>
-            <div class="column">
-                <img src="../static/images/tmpImage.jpg" alt="Item_2" style="width:100%" onclick="newProducts(this);">
-            </div>
-            <div class="column">
-                <img src="../static/images/tmpImage.jpg" alt="Item_3" style="width:100%" onclick="newProducts(this);">
-            </div>
-            <div class="column">
-                <img src="../static/images/tmpImage.jpg" alt="Item_4" style="width:100%" onclick="newProducts(this);">
-            </div>
-        </div>
-
-        <div class="container">
-            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-            <img id="expandedImg" style="width:100%">
-            <div id="imgtext"></div>
-        </div>
+        <table class="mainContainer" align="center">
+            <tr>
+                <th class="latestProductsTxt" colspan="4">New In the Shop</th>
+            </tr>
+            <tr>
+                <th>Product_1</th>
+                <th>Product_2</th>
+                <th>Product_3</th>
+                <th>Product_4</th>
+            </tr>
+            <tr>
+                <td class="latestProductCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+                <td class="latestProductCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+                <td class="latestProductCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+                <td class="latestProductCol" ><img src="../static/images/tmpImage.jpg" width="100%" alt="Item_1"></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
