@@ -80,6 +80,6 @@ li a:hover {
     display: block;
 }
 
-.dropdown:hover .dropButton{background-color: #333;}
-.dropdownContent a:hover {background-color: #333;}
+.dropdown:hover .dropButton{background-color: #111;}
+.dropdownContent a:hover {background-color: #111;}
 .dropdown:hover .dropdownContent {display: block;}
