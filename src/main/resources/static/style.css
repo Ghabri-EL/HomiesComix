@@ -46,3 +46,40 @@ li a:hover {
     width: 25%;
     padding: 5px;
 }
+
+/* dropdown menu */
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown .dropButton {
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+    border: none;
+    padding: 14px 16px;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    font-size: 20px;
+    text-align: center;
+    min-width: 100px;
+    z-index: 1;
+}
+
+.dropdownContent a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropButton{background-color: #333;}
+.dropdownContent a:hover {background-color: #333;}
+.dropdown:hover .dropdownContent {display: block;}
