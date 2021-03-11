@@ -1,4 +1,4 @@
-/*Top nav bar Roland*/
+/*Top nav bar*/
 ul {
     list-style-type: none;
     margin: 0;
@@ -40,6 +40,8 @@ li a:hover {
 /*text on top of table*/
 .latestProductsTxt {
     text-align: center;
+    font-size: 35px;
+    padding: 10px 0 10px 0;
 }
 /*width of table columns for latest product*/
 .latestProductCol {
