@@ -192,6 +192,7 @@ li a:hover {
     flex-wrap: wrap;
     background-color: rgb(238, 238, 238);
     width: 90%;
+    margin: auto;    
 }
 .login_signupContainer form{
     padding: 10px;
@@ -223,3 +224,4 @@ li a:hover {
 
 #loginDiv, #signupDiv{
     padding-top: 100px;
+}
