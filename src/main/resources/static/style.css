@@ -150,24 +150,24 @@ li a:hover {
 }
 
 /*-----------------DETAILS PAGE-----------------*/
-.detailContainer {
-    width: 80%;
-    margin: auto;
-}
-/*width of table columns for latest product*/
-.detailsImage {
-    width: 50%;
-    padding: 5px;
-}
-/*title of product*/
-.detailsTitle {
-    font-size: 35px;
-    padding: 10px 0 10px 0;
-}
-/*description text*/
-.detailDescription {
-    padding: 0 50px 0 50px;
-}
+/*.detailContainer {*/
+/*    width: 80%;*/
+/*    margin: auto;*/
+/*}*/
+/*!*width of table columns for latest product*!*/
+/*.detailsImage {*/
+/*    width: 50%;*/
+/*    padding: 5px;*/
+/*}*/
+/*!*title of product*!*/
+/*.detailsTitle {*/
+/*    font-size: 35px;*/
+/*    padding: 10px 0 10px 0;*/
+/*}*/
+/*!*description text*!*/
+/*.detailDescription {*/
+/*    padding: 0 50px 0 50px;*/
+/*}*/
 
 .dropdown:hover .dropButton{background-color: #111;}
 .dropdownContent a:hover {background-color: #111;}
@@ -224,4 +224,92 @@ li a:hover {
 
 #loginDiv, #signupDiv{
     padding-top: 100px;
+}
+/*======== NEW DETAILS PAGE ========*/
+.productsContainer{
+    width: 50%;
+}
+* {
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Container for arrows positioning */
+.arrowArea {
+    position: relative;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    /*-webkit-user-select: none;*/
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+ /*top text which image of 6, 1/6*/
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
 }
