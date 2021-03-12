@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" th:href="@{style.css}">
+    <script type="text/javascript" th:src="@{code.js}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>StayAtHomies</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <a href="/"><img class="logo" th:src="@{/images/logo.png}" alt="Shopping Cart"> </a>
+            <li><a class="cartImage" href="#cart"><img th:src="@{images/cart.png}" alt="Shopping Cart" width="40px" height="40px"></a></li>
+            <li><a href="/login_signup">Sign up/Login</a></li>
+            <li><a href="#sell">Sell</a></li>
+            <div class="dropdown">
+                <button class="dropButton" href="#products">Products</button>
+                <div class="dropdownContent">
+                    <a href="#tables">Tables</a>
+                    <a href="#chairs">Chairs</a>
+                    <a href="#couches">Couches</a>
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="container login_signupContainer">
+        <div id="loginDiv">
+            <form>
+                <table id="logInTbl">
+                    <thead>
+                        <tr>
+                            <th>Log In</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label for="login_email">Email</label></td>
+                        </tr>
+                        <tr>
+                            <td> <input id="login_email" name="email" type="email" placeholder="Enter email address here..." required/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="login_psd">Password</label></td>
+                        </tr>
+                        <tr>
+                            <td><input id="login_psd" name="password" type="password" placeholder="Enter password here..." required/></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit">Log In</button></td>
+                        </tr>                
+                    </tbody>
+                </table>
+            </form>    
+        </div>
+
+        <div id="signupDiv">
+            <form>
+                <table id="signUpTbl">
+                    <thead>
+                        <tr>
+                            <th>Sign Up</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label for="firstName">First Name</label></td>
+                        </tr>
+                        <tr>
+                            <td><input id="firstName" name="firstname" type="text" placeholder="Enter first name..." required/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="surname">Surname</label></td>
+                        </tr>
+                        <tr>
+                            <td><input id="surname" name="surname" type="text" placeholder="Enter surname..." required/></td>
+                        </tr>
+                        <tr>
+                            <td><labe for="reg_address">Address</labe></td>
+                        </tr>
+                        <tr>
+                            <td><input id="reg_address" name="address" type="text" placeholder="Enter adress..." required/></td>
+                        </tr>                    
+                        <tr>
+                            <td><label for="reg_email">Email</label></td>
+                        </tr>
+                        <tr>
+                            <td> <input id="reg_email" name="email" type="email" placeholder="Enter email address here..." required/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="reg_psd">Password</label></td>
+                        </tr>
+                        <tr>
+                            <td><input id="reg_psd" name="password" type="password" placeholder="Enter password here..." required/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="reg_psd_conf">Confirm Password</label></td>
+                        </tr>
+                        <tr>
+                            <td><input id="reg_psd_conf" name="password" type="password" placeholder="Enter password to confirm..." required/></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit">Sign Up</button></td>
+                        </tr>  
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
