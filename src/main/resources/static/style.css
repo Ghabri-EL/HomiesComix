@@ -12,6 +12,8 @@ html, body{
 }
 
 /*Top nav bar Roland*/
+/*-----------------NAVBAR-----------------*/
+/*Nav choices*/
 ul {
     list-style-type: none;
     margin: 0;
@@ -37,13 +39,54 @@ li a:hover {
     background-color: #111;
 }
 
+/*Image in upper left clickable home button*/
 .logo {
     padding-top: 5px;
 }
 
+/*Shopping cart image clickable*/
 .cartImage {
     padding: 5px 5px 0 0;
 }
+
+/* dropdown menu */
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown .dropButton {
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+    border: none;
+    padding: 14px 16px;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    font-size: 20px;
+    text-align: center;
+    min-width: 100px;
+    z-index: 1;
+}
+
+.dropdownContent a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropButton{background-color: #111;}
+.dropdownContent a:hover {background-color: #111;}
+.dropdown:hover .dropdownContent {display: block;}
+
+/*-----------------HOMEPAGE-----------------***/
 /*Latest product section of homepage*/
 /*Table width home page*/
 .mainContainer {
@@ -53,6 +96,8 @@ li a:hover {
 /*text on top of table*/
 .latestProductsTxt {
     text-align: center;
+    font-size: 35px;
+    padding: 10px 0 10px 0;
 }
 /*width of table columns for latest product*/
 .latestProductCol {
@@ -60,7 +105,7 @@ li a:hover {
     padding: 5px;
 }
 
-/*Image overlay on the products*/
+/*Image overlay on the products to display title and price*/
 .hover-img {
     display: inline-block;
     margin: 8px;
@@ -104,42 +149,35 @@ li a:hover {
     opacity: 0.7;
 }
 
-/* dropdown menu */
-.dropdown {
-    float: right;
-    overflow: hidden;
+/*-----------------DETAILS PAGE-----------------*/
+.detailContainer {
+    width: 80%;
+    margin: auto;
 }
-
-.dropdown .dropButton {
-    background-color: #333;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    outline: none;
-    border: none;
-    padding: 14px 16px;
+/*width of table columns for latest product*/
+.detailsImage {
+    width: 50%;
+    padding: 5px;
 }
-
-.dropdownContent {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    font-size: 20px;
-    text-align: center;
-    min-width: 100px;
-    z-index: 1;
+/*title of product*/
+.detailsTitle {
+    font-size: 35px;
+    padding: 10px 0 10px 0;
 }
-
-.dropdownContent a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: block;
+/*description text*/
+.detailDescription {
+    padding: 0 50px 0 50px;
 }
 
 .dropdown:hover .dropButton{background-color: #111;}
 .dropdownContent a:hover {background-color: #111;}
 .dropdown:hover .dropdownContent {display: block;}
+
+/*price*/
+.detailPrice {
+    text-align: center;
+    font-size: 35px;
+}
 
 /*CONTAINER STYLE*/
 .container{
@@ -185,4 +223,3 @@ li a:hover {
 
 #loginDiv, #signupDiv{
     padding-top: 100px;
-}
