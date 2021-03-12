@@ -1,0 +1,1 @@
+INSERT INTO admin (firstname, surname, email, `password`) VALUES ('admin', 'admin', 'whatever@homies.com', 'hellohomie');

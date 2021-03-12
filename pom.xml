@@ -1,7 +1,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>week4</groupId>
-  <artifactId>lab4</artifactId>
+  <groupId>stayathomies</groupId>
+  <artifactId>shop</artifactId>
   <version>0.0.1</version>
 
   <parent>

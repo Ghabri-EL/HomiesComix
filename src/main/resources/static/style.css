@@ -31,7 +31,6 @@ li a:hover {
 .cartImage {
     padding: 5px 5px 0 0;
 }
-
 /*Latest product section of homepage*/
 /*Table width home page*/
 .mainContainer {
@@ -128,9 +127,3 @@ li a:hover {
 .dropdown:hover .dropButton{background-color: #111;}
 .dropdownContent a:hover {background-color: #111;}
 .dropdown:hover .dropdownContent {display: block;}
-
-/* Products Col */
-.productsCol {
-    width: 25%;
-    padding: 5px;
-}
