@@ -15,4 +15,14 @@ public class AppController {
     public String login_signupPage(){
         return "login_signup.html";
     }
+
+    @GetMapping("/products")
+    public String products(){
+        return "products.html";
+    }
+
+    @GetMapping("/details")
+    public String details(){
+        return "details.html";
+    }
 }
