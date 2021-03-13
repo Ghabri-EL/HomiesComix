@@ -23,5 +23,94 @@
             </div>
         </ul>
     </nav>
+
+    <div class="gallery">
+        <div class="galleryContainer">
+
+            <h2 class="galleryTitle">THE SHOP</h2>
+            <hr>
+
+            <div id="myBtnContainer">
+                <button class="tabButton active" onclick="filterSelection('all')"> Show all</button>
+                <button class="tabButton" onclick="filterSelection('table')"> Tables</button>
+                <button class="tabButton" onclick="filterSelection('chair')"> Chairs</button>
+                <button class="tabButton" onclick="filterSelection('couch')"> Couches</button>
+            </div>
+
+            <!--Gallery Grid -->
+            <div class="row">
+                <div class="column table">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Table" style="width:100%">
+                        <h4>Table</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+                <div class="column table">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Table" style="width:100%">
+                        <h4>Table</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+                <div class="column table">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Table" style="width:100%">
+                        <h4>Table</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+
+                <div class="column chair">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Chair" style="width:100%">
+                        <h4>Chair</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+                <div class="column chair">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Chair" style="width:100%">
+                        <h4>Chair</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+                <div class="column chair">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Chair" style="width:100%">
+                        <h4>Chair</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+
+                <div class="column couch">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Couch" style="width:100%">
+                        <h4>Couch</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+                <div class="column couch">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Couch" style="width:100%">
+                        <h4>Couch</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+                <div class="column couch">
+                    <div class="content">
+                        <img src="../static/images/test_table.jpg" alt="Couch" style="width:100%">
+                        <h4>Couch</h4>
+                        <p>$$$$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--show gallery intially when page first loaded-->
+    <script>
+        filterSelection("all")
+    </script>
 </body>
 </html>

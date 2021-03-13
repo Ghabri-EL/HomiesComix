@@ -149,26 +149,6 @@ li a:hover {
     opacity: 0.7;
 }
 
-/*-----------------DETAILS PAGE-----------------*/
-/*.detailContainer {*/
-/*    width: 80%;*/
-/*    margin: auto;*/
-/*}*/
-/*!*width of table columns for latest product*!*/
-/*.detailsImage {*/
-/*    width: 50%;*/
-/*    padding: 5px;*/
-/*}*/
-/*!*title of product*!*/
-/*.detailsTitle {*/
-/*    font-size: 35px;*/
-/*    padding: 10px 0 10px 0;*/
-/*}*/
-/*!*description text*!*/
-/*.detailDescription {*/
-/*    padding: 0 50px 0 50px;*/
-/*}*/
-
 .dropdown:hover .dropButton{background-color: #111;}
 .dropdownContent a:hover {background-color: #111;}
 .dropdown:hover .dropdownContent {display: block;}
@@ -276,7 +256,7 @@ img {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
- /*top text which image of 6, 1/6*/
+/*top text which image of 6, 1/6*/
 .numberText {
     color: #f2f2f2;
     font-size: 12px;
@@ -315,6 +295,7 @@ img {
     opacity: 1;
 }
 
+/*right side of page with info*/
 .detailContainer {
     width: 50%;
     margin: auto;
@@ -322,15 +303,88 @@ img {
     padding: 5% 5% 0 2%;
 }
 
+/*title text*/
 .detailsTitle {
     font-size: 35px;
     padding: 10px 0 10px 0;
 }
 
+/*width of both columns beside image*/
 .detailCol {
     width: 50%;
 }
 
+/*button spacing*/
 .detailBuying {
     padding-top: 5%;
+}
+
+/*======== PRODUCTS PAGE ========*/
+.gallery {
+    background-color: #f1f1f1;
+    padding: 20px;
+    font-family: Arial;
+}
+
+/* Center website */
+.galleryContainer {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.galleryTitle {
+    padding: 20px 0 5px 0;
+}
+
+.row {
+    margin: 10px -16px;
+}
+
+/*padding between column */
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+/* create 3 columns */
+.column {
+    float: left;
+    width: 33.33%;
+    display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Content */
+.content {
+    background-color: white;
+    padding: 10px;
+}
+
+/*show class added to filtered elements */
+.show {
+    display: block;
+}
+
+/* Style the buttons */
+.tabButton {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.tabButton:hover {
+    background-color: #ddd;
+}
+
+.tabButton.active {
+    background-color: #666;
+    color: white;
 }
