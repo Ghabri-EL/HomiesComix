@@ -28,7 +28,7 @@
 
     <div class="container login_signupContainer">
         <div id="loginDiv">
-            <form>
+            <form action="/login" method="POST">
                 <table id="logInTbl">
                     <thead>
                         <tr>
@@ -57,7 +57,7 @@
         </div>
 
         <div id="signupDiv">
-            <form>
+            <form action="/signup" method="POST">
                 <table id="signUpTbl">
                     <thead>
                         <tr>
@@ -78,7 +78,7 @@
                             <td><input id="surname" name="surname" type="text" placeholder="Enter surname..." required/></td>
                         </tr>
                         <tr>
-                            <td><labe for="reg_address">Address</labe></td>
+                            <td><label for="reg_address">Address</label></td>
                         </tr>
                         <tr>
                             <td><input id="reg_address" name="address" type="text" placeholder="Enter adress..." required/></td>
@@ -99,7 +99,7 @@
                             <td><label for="reg_psd_conf">Confirm Password</label></td>
                         </tr>
                         <tr>
-                            <td><input id="reg_psd_conf" name="password" type="password" placeholder="Enter password to confirm..." required/></td>
+                            <td><input id="reg_psd_conf" name="password_confirm" type="password" placeholder="Enter password to confirm..." required/></td>
                         </tr>
                         <tr>
                             <td><button type="submit">Sign Up</button></td>

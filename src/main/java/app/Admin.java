@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Admin {
+public class Admin{
     public Admin(){}
 
     public Admin(String firstName, String surname, String email, String password){
@@ -32,7 +32,6 @@ public class Admin {
 
     @Column
     private String password;
-
 
     public int getId() {
         return this.id;
