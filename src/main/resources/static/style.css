@@ -191,13 +191,13 @@ li a:hover {background-color: #111;}
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: rgb(238, 238, 238);
+    background-color: white;
     width: 90%;
     margin: auto;
 }
 .login_signupContainer form{
     padding: 10px;
-    background-color: rgb(230, 230, 230);
+    background-color: #D4D3CE;
     font-size: 20px;
 }
 
@@ -216,6 +216,7 @@ li a:hover {background-color: #111;}
     margin-top: 10px;
     cursor: pointer;
     font-size: 20px;
+    background-color: #287094;
 }
 
 .login_signupContainer label{
