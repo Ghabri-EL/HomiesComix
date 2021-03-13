@@ -67,3 +67,18 @@ for (var i = 0; i < btns.length; i++) {
         this.className += " active";
     });
 }
+//======== PROFILE PAGE ========
+
+function viewUser(id){
+    console.log("The id is: " + id);
+    var xhr = new XMLHttpRequest();
+    xhr.onload = addView;
+    xhr.open("GET", "/user/"+id);
+    xhr.send();
+}
+
+function addView(){
+    var phone_table = this.responseText;
+    var col_two = document.getElementById("col_two");
+    col_two.innerHTML=phone_table;
+}
