@@ -414,3 +414,34 @@ h4 {
     background-color: #666;
     color: white;
 }
+/*======== PRODUCTS PAGE ========*/
+.profileContainer{
+    max-width: 80%;
+    margin: auto;
+    /*padding: 0 100px 0 100px;*/
+}
+
+.profileTitle {
+    padding: 20px 0 5px 0;
+    font-size: 35px;
+}
+
+.profileButtons {
+    padding-top: 20px;
+}
+
+.profileButtons button {
+    background-color: #287094;
+    border: 3px solid #023246;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 15%;
+    min-width: 150px;
+    display: block;
+}
+
+/* Add a background color on hover */
+.profileButtons button:hover {
+    background-color: #111;
+}
