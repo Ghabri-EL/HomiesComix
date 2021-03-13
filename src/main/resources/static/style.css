@@ -35,17 +35,28 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
-    background-color: #111;
-}
+li a:hover {background-color: #111;}
 
 /*Image in upper left clickable home button*/
 .logo {
-    padding-left: 50px;
+    float: left;
     color: #D4D3CE;
     font-family: 'Abhaya Libre';
     font-size: 20px;
     text-decoration: none;
+}
+
+.logo a:hover {background-color: #023246;}
+
+.slogan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #D4D3CE;
+    font-family: 'Abhaya Libre';
+    font-size: 50px;
+    text-content: center;
 }
 
 /*Shopping cart image clickable*/
@@ -95,9 +106,7 @@ li a:hover {
 /*-----------------HOMEPAGE-----------------***/
 /*Latest product section of homepage*/
 /*Table width home page*/
-.container {
-    background-color: #287094;
-}
+.container {background-color: #287094;}
 
 .mainContainer {
     width: 75%;
