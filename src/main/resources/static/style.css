@@ -120,7 +120,7 @@ li a:hover {
 .hover-img figcaption {
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 5%;
     left: 0;
     right: 0;
     align-items: center;
@@ -128,7 +128,7 @@ li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    line-height: 0em;
+    line-height: 2em;
     opacity: 0;
     z-index: 2;
     transition-delay: 0.1s;
@@ -172,7 +172,7 @@ li a:hover {
     flex-wrap: wrap;
     background-color: rgb(238, 238, 238);
     width: 90%;
-    margin: auto;    
+    margin: auto;
 }
 .login_signupContainer form{
     padding: 10px;
