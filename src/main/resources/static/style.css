@@ -106,7 +106,7 @@ li a:hover {background-color: #111;}
 /*-----------------HOMEPAGE-----------------***/
 /*Latest product section of homepage*/
 /*Table width home page*/
-.container {background-color: #287094;}
+.container {background-color: #D4D3CE;}
 
 .mainContainer {
     width: 75%;
@@ -116,7 +116,7 @@ li a:hover {background-color: #111;}
 .latestProductsTxt {
     text-align: center;
     font-family: 'Abhaya Libre';
-    color: #D4D3CE;
+    color: black;
     font-size: 35px;
     padding: 10px 0 10px 0;
 }
@@ -197,7 +197,7 @@ li a:hover {background-color: #111;}
 }
 .login_signupContainer form{
     padding: 10px;
-    background-color: #D4D3CE;
+    background-color: #F6F6F6;
     font-size: 20px;
 }
 
@@ -212,11 +212,14 @@ li a:hover {background-color: #111;}
 
 .login_signupContainer button{
     float: right;
-    padding: 5px;
-    margin-top: 10px;
+    padding: 10px 28px;
+    margin: 4px 2px;
     cursor: pointer;
-    font-size: 20px;
-    background-color: #287094;
+    font-size: 15px;
+    font-family: 'Abhaya Libre';
+    text-align: center;
+    background-color: #0F3C5C;
+    color: white;
 }
 
 .login_signupContainer label{
@@ -411,7 +414,7 @@ h4 {
 }
 
 .tabButton.active {
-    background-color: #666;
+    background-color: #0F3C5C;
     color: white;
 }
 /*======== PRODUCTS PAGE ========*/
