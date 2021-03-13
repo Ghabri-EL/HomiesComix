@@ -4,7 +4,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #023246;
 }
 
 li {
@@ -13,7 +13,8 @@ li {
 
 li a {
     display: block;
-    color: white;
+    color: #D4D3CE;
+    font-family: 'Abhaya Libre';
     font-size: 20px;
     text-align: center;
     padding: 14px 16px;
@@ -25,11 +26,16 @@ li a:hover {
 }
 
 .logo {
-    padding-top: 5px;
+    height: 130px;
+    width: 130px;
 }
 
 .cartImage {
     padding: 5px 5px 0 0;
+}
+
+.container {
+    background-color: #287094;
 }
 /*Latest product section of homepage*/
 /*Table width home page*/
@@ -40,6 +46,8 @@ li a:hover {
 /*text on top of table*/
 .latestProductsTxt {
     text-align: center;
+    font-family: 'Abhaya Libre';
+    color: #D4D3CE;
 }
 /*width of table columns for latest product*/
 .latestProductCol {
@@ -98,9 +106,10 @@ li a:hover {
 }
 
 .dropdown .dropButton {
-    background-color: #333;
-    color: white;
+    background-color: #023246;
+    color: #D4D3CE;
     font-size: 20px;
+    font-family: 'Abhaya Libre';
     text-align: center;
     outline: none;
     border: none;
@@ -110,15 +119,17 @@ li a:hover {
 .dropdownContent {
     display: none;
     position: absolute;
-    background-color: #333;
+    background-color: #023246;
+    color: #D4D3CE;
     font-size: 20px;
+    font-family: 'Abhaya Libre';
     text-align: center;
     min-width: 100px;
     z-index: 1;
 }
 
 .dropdownContent a {
-    color: white;
+    color: #D4D3CE;
     padding: 14px 16px;
     text-decoration: none;
     display: block;
