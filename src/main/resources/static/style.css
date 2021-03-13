@@ -280,7 +280,7 @@ img {
 }
 
 /* Six columns side by side */
-.column {
+.columnDetail{
     float: left;
     width: 20%;
 }
@@ -336,13 +336,13 @@ img {
     padding: 20px 0 5px 0;
 }
 
-.row {
+.rowProducts {
     margin: 10px -16px;
 }
 
 /*padding between column */
-.row,
-.row > .column {
+.rowProducts,
+.rowProducts > .column {
     padding: 8px;
 }
 
@@ -354,7 +354,7 @@ img {
 }
 
 /* Clear floats after rows */
-.row:after {
+.rowProducts:after {
     content: "";
     display: table;
     clear: both;
