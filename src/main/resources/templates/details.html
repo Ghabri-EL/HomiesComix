@@ -1,35 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../static/style.css">
-    <script type="text/javascript" src="../static/code.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="code.js"></script>
     <meta charset="UTF-8">
     <title>Details</title>
 </head>
 <body>
-    <div >
+    <nav>
         <ul>
-            <a href="#home"><img class="logo" src="../static/images/logo.png" alt="Shopping Cart"> </a>
-            <li><a class="cartImage" href="#cart"><img src="../static/images/cart.png" alt="Shopping Cart" width="40px" height="40px"></a></li>
-            <li><a href="#signup">Sign up/Login</a></li>
+            <li><a class="cartImage" href="#cart"><img src="images/cart.png" alt="Shopping Cart" width="40px" height="40px"></a></li>
+            <li><a href="/login_signup">Sign up/Login</a></li>
             <li><a href="#sell">Sell</a></li>
             <div class="dropdown">
                 <button class="dropButton" href="#products">Products</button>
                 <div class="dropdownContent">
-                    <a href="#tables">Tables</a>
-                    <a href="#chairs">Chairs</a>
-                    <a href="#couches">Couches</a>
+                    <a href="/products">Tables</a>
+                    <a href="/products">Chairs</a>
+                    <a href="/products">Couches</a>
                 </div>
             </div>
+            <li style="float: left"><a class ="logo" href="/">StayAtHomies</a></li>
         </ul>
+    </nav>
+
+    <div class="productsContainer">
+        <div class="arrowArea">
+            <div class="mySlides">
+                <div class="numberText">1 / 6</div>
+                <img src="images/test_table.jpg" onload="currentSlide(1)" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numberText">2 / 6</div>
+                <img src="images/test_table.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numberText">3 / 6</div>
+                <img src="images/test_table.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numberText">4 / 6</div>
+                <img src="images/test_table.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numberText">5 / 6</div>
+                <img src="images/test_table.jpg" style="width:100%">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+            <div class="row">
+                <div class="columnDetail">
+                    <img class="demo cursor" src="images/test_table.jpg" style="width:100%" onclick="currentSlide(1)" alt="Table image 1">
+                </div>
+                <div class="columnDetail">
+                    <img class="demo cursor" src="images/test_table.jpg" style="width:100%" onclick="currentSlide(2)" alt="Table image 2">
+                </div>
+                <div class="columnDetail">
+                    <img class="demo cursor" src="images/test_table.jpg" style="width:100%" onclick="currentSlide(3)" alt="Table image 3">
+                </div>
+                <div class="columnDetail">
+                    <img class="demo cursor" src="images/test_table.jpg" style="width:100%" onclick="currentSlide(4)" alt="Table image 4">
+                </div>
+                <div class="columnDetail">
+                    <img class="demo cursor" src="images/test_table.jpg" style="width:100%" onclick="currentSlide(5)" alt="Table image 5">
+                </div>
+            </div>
+        </div>
+    </div>
 
         <table class="detailContainer" align="center">
             <tr>
-                <th colspan="2" class="detailsTitle">Product Name</th>
+                <th class="detailsTitle">Product Name</th>
+                <th class="detailsTitle">Price</th>
             </tr>
             <tr>
-                <td  rowspan="3" class="detailsImage"><img src="../static/images/test_table.jpg" width="100%"></td>
-                <td>
+                <td class="detailCol">
                     <p class="detailDescription">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ipsum elit, accumsan quis lobortis in, feugiat ac quam.
                         Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean rutrum convallis purus sed aliquam.
@@ -38,20 +93,18 @@
                         Mauris sed hendrerit nibh. Suspendisse volutpat viverra elit, sed ornare nunc aliquet vel. Mauris venenatis pretium lorem, in dapibus ante malesuada eget.
                     </p>
                 </td>
-            </tr>
-            <tr>
                 <td class="detailPrice">$$$$</td>
             </tr>
             <tr>
-                <td align="center">
-                    <form>
+                <td colspan="2" align="center">
+                    <form class="detailBuying">
                         <label for="quantity">Quantity:</label>
                         <input type="number" id="quantity" name="quantity" min="1" max="5">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Add to Cart">
                     </form>
                 </td>
             </tr>
         </table>
-    </div>
+
 </body>
 </html>

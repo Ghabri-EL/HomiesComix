@@ -11,18 +11,18 @@
 <body>
     <nav>
         <ul>
-            <a href="/"><img class="logo" th:src="@{/images/logo.png}" alt="Shopping Cart"> </a>
             <li><a class="cartImage" href="#cart"><img th:src="@{images/cart.png}" alt="Shopping Cart" width="40px" height="40px"></a></li>
             <li><a href="/login_signup">Sign up/Login</a></li>
             <li><a href="#sell">Sell</a></li>
             <div class="dropdown">
                 <button class="dropButton" href="#products">Products</button>
                 <div class="dropdownContent">
-                    <a href="#tables">Tables</a>
-                    <a href="#chairs">Chairs</a>
-                    <a href="#couches">Couches</a>
+                    <a href="/products">Tables</a>
+                    <a href="/products">Chairs</a>
+                    <a href="/products">Couches</a>
                 </div>
             </div>
+            <li style="float: left"><a class ="logo" href="/">StayAtHomies</a></li>
         </ul>
     </nav>
 

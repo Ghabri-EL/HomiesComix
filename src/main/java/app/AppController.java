@@ -94,4 +94,13 @@ public class AppController {
         }
     }  
     
+    @GetMapping("/products")
+    public String products(){
+        return "products.html";
+    }
+
+    @GetMapping("/details")
+    public String details(){
+        return "details.html";
+    }
 }
