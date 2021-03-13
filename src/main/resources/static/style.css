@@ -366,6 +366,10 @@ img {
     padding: 10px;
 }
 
+h4 {
+    padding: 5px 0 5px 0;
+}
+
 /*show class added to filtered elements */
 .show {
     display: block;
