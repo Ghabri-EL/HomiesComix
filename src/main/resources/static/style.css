@@ -1,10 +1,25 @@
+/* Reset page padding and margins*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*set window height to display size*/
+html, body{
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+}
+
 /*Top nav bar Roland*/
+/*-----------------NAVBAR-----------------*/
+/*Nav choices*/
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #023246;
+    background-color: #333;
 }
 
 li {
@@ -13,8 +28,7 @@ li {
 
 li a {
     display: block;
-    color: #D4D3CE;
-    font-family: 'Abhaya Libre';
+    color: white;
     font-size: 20px;
     text-align: center;
     padding: 14px 16px;
@@ -25,18 +39,54 @@ li a:hover {
     background-color: #111;
 }
 
+/*Image in upper left clickable home button*/
 .logo {
-    height: 130px;
-    width: 130px;
+    padding-top: 5px;
 }
 
+/*Shopping cart image clickable*/
 .cartImage {
     padding: 5px 5px 0 0;
 }
 
-.container {
-    background-color: #287094;
+/* dropdown menu */
+.dropdown {
+    float: right;
+    overflow: hidden;
 }
+
+.dropdown .dropButton {
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+    border: none;
+    padding: 14px 16px;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    font-size: 20px;
+    text-align: center;
+    min-width: 100px;
+    z-index: 1;
+}
+
+.dropdownContent a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropButton{background-color: #111;}
+.dropdownContent a:hover {background-color: #111;}
+.dropdown:hover .dropdownContent {display: block;}
+
+/*-----------------HOMEPAGE-----------------***/
 /*Latest product section of homepage*/
 /*Table width home page*/
 .mainContainer {
@@ -46,8 +96,8 @@ li a:hover {
 /*text on top of table*/
 .latestProductsTxt {
     text-align: center;
-    font-family: 'Abhaya Libre';
-    color: #D4D3CE;
+    font-size: 35px;
+    padding: 10px 0 10px 0;
 }
 /*width of table columns for latest product*/
 .latestProductCol {
@@ -55,7 +105,7 @@ li a:hover {
     padding: 5px;
 }
 
-/*Image overlay on the products*/
+/*Image overlay on the products to display title and price*/
 .hover-img {
     display: inline-block;
     margin: 8px;
@@ -99,42 +149,166 @@ li a:hover {
     opacity: 0.7;
 }
 
-/* dropdown menu */
-.dropdown {
-    float: right;
-    overflow: hidden;
-}
-
-.dropdown .dropButton {
-    background-color: #023246;
-    color: #D4D3CE;
-    font-size: 20px;
-    font-family: 'Abhaya Libre';
-    text-align: center;
-    outline: none;
-    border: none;
-    padding: 14px 16px;
-}
-
-.dropdownContent {
-    display: none;
-    position: absolute;
-    background-color: #023246;
-    color: #D4D3CE;
-    font-size: 20px;
-    font-family: 'Abhaya Libre';
-    text-align: center;
-    min-width: 100px;
-    z-index: 1;
-}
-
-.dropdownContent a {
-    color: #D4D3CE;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: block;
-}
+/*-----------------DETAILS PAGE-----------------*/
+/*.detailContainer {*/
+/*    width: 80%;*/
+/*    margin: auto;*/
+/*}*/
+/*!*width of table columns for latest product*!*/
+/*.detailsImage {*/
+/*    width: 50%;*/
+/*    padding: 5px;*/
+/*}*/
+/*!*title of product*!*/
+/*.detailsTitle {*/
+/*    font-size: 35px;*/
+/*    padding: 10px 0 10px 0;*/
+/*}*/
+/*!*description text*!*/
+/*.detailDescription {*/
+/*    padding: 0 50px 0 50px;*/
+/*}*/
 
 .dropdown:hover .dropButton{background-color: #111;}
 .dropdownContent a:hover {background-color: #111;}
 .dropdown:hover .dropdownContent {display: block;}
+
+/*price*/
+.detailPrice {
+    text-align: center;
+    font-size: 35px;
+}
+
+/*CONTAINER STYLE*/
+.container{
+    min-height: 100%;
+    width: 100%;
+}
+/*======== SIGN IN AND SIGN UP PAGE STYLE ========*/
+
+.login_signupContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: rgb(238, 238, 238);
+    width: 90%;
+    margin: auto;    
+}
+.login_signupContainer form{
+    padding: 10px;
+    background-color: rgb(230, 230, 230);
+    font-size: 20px;
+}
+
+.login_signupContainer input{
+    width: 250px;
+    height: 30px;
+    background-color: rgba(0, 48, 48, 0.185);
+    border: none;
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+.login_signupContainer button{
+    float: right;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.login_signupContainer label{
+    display: block;
+    padding-top: 10px;
+}
+
+#loginDiv, #signupDiv{
+    padding-top: 100px;
+}
+/*======== NEW DETAILS PAGE ========*/
+.productsContainer{
+    width: 50%;
+}
+* {
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Container for arrows positioning */
+.arrowArea {
+    position: relative;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    /*border-radius: 0 3px 3px 0;*/
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+ /*top text which image of 6, 1/6*/
+.numberText {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 20%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
