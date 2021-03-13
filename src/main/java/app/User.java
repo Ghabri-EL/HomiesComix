@@ -42,8 +42,6 @@ public class User {
     //@OneToMany
     //private List<Order> orders;
 
-    public User(){}
-
     public int getId() {
         return this.id;
     }
