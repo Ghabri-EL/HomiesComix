@@ -228,6 +228,8 @@ li a:hover {
 /*======== NEW DETAILS PAGE ========*/
 .productsContainer{
     width: 50%;
+    float: left;
+    padding: 5% 2% 0 5%;
 }
 * {
     box-sizing: border-box;
@@ -303,7 +305,7 @@ img {
     width: 20%;
 }
 
-/* Add a transparency effect for thumnbail images */
+/* transparency on bottom images */
 .demo {
     opacity: 0.6;
 }
@@ -311,4 +313,24 @@ img {
 .active,
 .demo:hover {
     opacity: 1;
+}
+
+.detailContainer {
+    width: 50%;
+    margin: auto;
+    float: right;
+    padding: 5% 5% 0 2%;
+}
+
+.detailsTitle {
+    font-size: 35px;
+    padding: 10px 0 10px 0;
+}
+
+.detailCol {
+    width: 50%;
+}
+
+.detailBuying {
+    padding-top: 5%;
 }
