@@ -5,11 +5,8 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AppController {
@@ -102,5 +99,17 @@ public class AppController {
     @GetMapping("/details")
     public String details(){
         return "details.html";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Model model){
+        model.addAttribute("users",userDb.findAll());
+        return "profile.html";
+    }
+
+    @GetMapping("/user/{id}")
+    public String findUser(@PathVariable("id") Integer id, Model model){
+        model.addAttribute("user", userDb.findById(id).get());
+        return "user.html";
     }
 }
