@@ -28,21 +28,21 @@
         <h2 class="profileTitle">Profile</h2>
         <hr>
 
-        <div class="profileButtons">
-            <button>User Details</button>
-            <br>
-            <button>Orders History</button>
-            <br>
-            <button>Features..</button>
-        </div>
-
-<!--        <div class="profileButtons" th:each="user : ${users}" th:id="|row_${user.id}|">-->
-<!--            <button th:onclick="|viewUser(${user.id})|">User Details</button>-->
+<!--        <div class="profileButtons">-->
+<!--            <button>User Details</button>-->
 <!--            <br>-->
 <!--            <button>Orders History</button>-->
 <!--            <br>-->
 <!--            <button>Features..</button>-->
 <!--        </div>-->
+
+        <div class="profileButtons" th:each="user : ${users}" th:id="|row_${user.id}|">
+            <button th:onclick="|viewUser(${user.id})|">User Details</button>
+            <br>
+            <button>Orders History</button>
+            <br>
+            <button>Features..</button>
+        </div>
 <!--        <div class="profileButtons">-->
 <!--            <table>-->
 <!--                <tr th:each="user : ${users}" th:id="|row_${user.id}|">-->

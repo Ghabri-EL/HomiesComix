@@ -69,7 +69,7 @@ for (var i = 0; i < btns.length; i++) {
 }
 //======== PROFILE PAGE ========
 
-function viewPerson(id){
+function viewUser(id){
     console.log("The id is: " + id);
     var xhr = new XMLHttpRequest();
     xhr.onload = addView;
