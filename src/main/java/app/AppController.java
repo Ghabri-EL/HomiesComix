@@ -1,7 +1,6 @@
 package app;
 
 import java.io.IOException;
-import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,17 +41,17 @@ public class AppController {
     }
 
     @PostMapping("/login")
-    public void loginHandler(Credentials credentials, HttpServletResponse response){
+    public void loginHandler(String email, String password, HttpServletResponse response){
         Admin admin = null;
-        admin = adminDb.findAdminByEmailAndPassword(credentials.getEmail(), passwordHandler.hashPass(credentials.getPassword()));
+        admin = adminDb.findAdminByEmailAndPassword(email, passwordHandler.hashPass(password));
         User user = null;
-        user = userDb.findUserByEmailAndPassword(credentials.getEmail(), passwordHandler.hashPass(credentials.getPassword()));
-        if(admin != null || user != null){
-            if(admin != null){
-                credentials.setAdmin(true);
+        user = userDb.findUserByEmailAndPassword(email, passwordHandler.hashPass(password));
+        if(admin != null || user != null){            
+            if(admin != null){            
+                sessionCred.setCredentials(new Credentials(admin, true));
             }
             
-            sessionCred.setCredentials(credentials);
+            sessionCred.setCredentials(new Credentials(user));
             try {
                 response.sendRedirect("/");
             } catch (IOException e) {
@@ -123,15 +122,25 @@ public class AppController {
     }
 
     @GetMapping("/profile")
-    public String profile(Model model){
+    public String profile(Model model){        
         model.addAttribute("credentials", sessionCred.getCredentials());
-        model.addAttribute("users",userDb.findAll());
-        return "profile.html";
+        String page = "profile_restrict.html";
+
+        if(sessionCred.getCredentials() == null){
+            return page;
+        }
+        else if(sessionCred.getCredentials().isAdmin()){
+            page = "profile_admin.html";
+        }
+        else{
+            page = "profile_user.html";
+        }
+        return page;
     }
 
-    @GetMapping("/user/{id}")
-    public String findUser(@PathVariable("id") Integer id, Model model){
-        model.addAttribute("user", userDb.findById(id).get());
-        return "user.html";
+    @GetMapping("/userdetails")
+    public String returnUserDetails(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
+        return "user_details.html";
     }
 }

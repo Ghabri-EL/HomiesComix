@@ -1,0 +1,22 @@
+<div class="user_details">
+    <table>
+        <tbody th:with="user=${credentials.genUser}">
+            <tr>
+                <td>First Name:</td>
+                <td th:text="${user.firstname}"></td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td th:text="${user.surname}"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td th:text="${user.email}"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td th:text="${user.address}"></td>
+            </tr>                        
+        </tbody>
+    </table>   
+</div>

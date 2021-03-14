@@ -1,48 +1,37 @@
 package app;
 
 public class Credentials {
-    private String email;
-    private String password;
-    private boolean isAdmin = false;
+    GeneralUser genUser;
+    private boolean admin = false;
 
     public Credentials(){}
 
-    public Credentials(String email, String password, boolean admin){
-        this.email = email;
-        this.password = password;
-        this.isAdmin = admin;
+    public Credentials(Admin adminUsr, boolean isAdmin){
+        this.genUser = adminUsr;
+        this.admin = isAdmin;
     }
 
-    public Credentials(String email, String password){
-        this.email = email;
-        this.password = password;
+    public Credentials(User user){
+        this.genUser = user;
     }
 
-    public String getEmail() {
-        return this.email;
+    public GeneralUser getGenUser() {
+        return this.genUser;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setGenUser(GeneralUser genUser) {
+        this.genUser = genUser;
     }
 
     public boolean isAdmin() {
-        return this.isAdmin;
+        return this.admin;
     }
 
     public boolean getAdmin() {
-        return this.isAdmin;
+        return this.admin;
     }
 
     public void setAdmin(boolean admin) {
-        this.isAdmin = admin;
+        this.admin = admin;
     }
 }

@@ -69,16 +69,16 @@ for (var i = 0; i < btns.length; i++) {
 }
 //======== PROFILE PAGE ========
 
-function viewUser(id){
-    console.log("The id is: " + id);
+function viewUser(){
     var xhr = new XMLHttpRequest();
     xhr.onload = addView;
-    xhr.open("GET", "/user/"+id);
+    xhr.open("GET", "/userdetails");
     xhr.send();
 }
 
 function addView(){
-    var phone_table = this.responseText;
-    var col_two = document.getElementById("col_two");
-    col_two.innerHTML=phone_table;
+    var user_details = this.responseText;
+    console.log(user_details);
+    var viewPort= document.getElementById("profile_view");
+    viewPort.innerHTML=user_details;
 }

@@ -15,4 +15,5 @@ public class SessionHandler {
     public void setCredentials(Credentials credentials) {
         this.credentials = credentials;
     }
+
 }
