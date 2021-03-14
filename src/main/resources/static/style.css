@@ -194,12 +194,13 @@ li a:hover {background-color: #111;}
     flex-wrap: wrap;
     background-color: #f0f0f0;
     height: auto;
-    width: 90%;
-    margin: auto;
-    padding-top: 150px;
+    width: 70%;
+    margin-top: 100px;
+    margin-left: 220px;
     align-items: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid #023246;
+
 }
 
 .login_signupContainer table{
@@ -231,6 +232,7 @@ li a:hover {background-color: #111;}
 
 .login_signupContainer img{
     width: 420px;
+    padding-right: 20px;
 }
 
 .login_signupContainer button:hover{
