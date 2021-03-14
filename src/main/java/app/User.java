@@ -9,17 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class User {
-
-    public User(){}
-
-    public User(String firstname, String surname, String address, String email, String password){
-        this.firstName = firstname;
-        this.surname = surname;
-        this.address = address;
-        this.email = email;
-        this.password = password;
-    }
+public class User {    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -41,6 +31,16 @@ public class User {
 
     //@OneToMany
     //private List<Order> orders;
+
+    public User(){}
+
+    public User(String firstname, String surname, String address, String email, String password){
+        this.firstName = firstname;
+        this.surname = surname;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+    }
 
     public int getId() {
         return this.id;
