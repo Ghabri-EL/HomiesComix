@@ -136,6 +136,7 @@ li a:hover {background-color: #111;}
     position: relative;
     text-align: center;
     width: 100%;
+    transition: linear 0.2s;
 }
 
 .hover-img figcaption {
@@ -153,12 +154,12 @@ li a:hover {background-color: #111;}
     opacity: 0;
     z-index: 2;
     transition-delay: 0.1s;
+    transition: linear 0.2s;
     color: black;
     font-size: 24px;
     font-family: sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-
 }
 
 .hover-img:hover figcaption {

@@ -98,7 +98,17 @@ public class AppController {
                 e.printStackTrace();
             }
         }
-    }  
+    } 
+    
+    @GetMapping("/logout")
+    public void logout(HttpServletResponse response){
+        sessionCred.setCredentials(null);
+        try {
+            response.sendRedirect("/");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     @GetMapping("/products")
     public String products(Model model){
