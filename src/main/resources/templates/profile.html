@@ -13,7 +13,7 @@
             <a class ="logo" href="/">StayAtHomies</a>
             <li><a class="cartImage" href="#cart"><img src="images/cart.png" alt="Shopping Cart"></a></li>
             <li><a th:href="@{(${credentials == null} ? '/login_signup': '/logout')}" th:text="${credentials} ? 'LogOut' : 'Sign up/Login'"></a></li>
-            <li><a href="#sell">Sell</a></li>
+            <li><a href="/profile">Profile</a></li>
             <div class="dropdown">
                 <button class="dropButton" href="#products">Products</button>
                 <div class="dropdownContent">
