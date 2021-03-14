@@ -24,12 +24,20 @@ public class AppController {
     PasswordHandler passwordHandler;
 
     @GetMapping("/")
-    public String homePage(){
+    public String homePage(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
         return "home.html";
     }
 
     @GetMapping("/login_signup")
     public String login_signupPage(HttpServletResponse response){    
+        if(sessionCred.getCredentials() != null){
+            try {
+                response.sendRedirect("/");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }        
         return "login_signup.html";
     }
 
@@ -53,7 +61,7 @@ public class AppController {
         }
         else{
             try {
-                response.sendRedirect("/login_signup?login=fail");
+                response.sendRedirect("/login_signup?re=logfail&msg=Failed+to+log+in.+Wrong+email+or+password.");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -69,22 +77,23 @@ public class AppController {
         if(user == null){
             User saveUser = new User(firstname, surname, address, email, passwordHandler.hashPass(password)); 
             userDb.save(saveUser);           
-            msg="Registered-Successfully";
+            msg="Registered+Successfully";
             try {
-                response.sendRedirect("/login_signup?signup=success&msg="+msg);
+                response.sendRedirect("/login_signup?re=success&msg="+msg);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         else{
             if(!password.equals(password_confirm)){
-                msg="Passwords-do-not-match";
+                msg="Passwords+do+not+match";
             }
             else{
-                msg="User-exits";
+                msg="User+already+exits";
             }
+
             try {
-                response.sendRedirect("/login_signup?signup=fail&msg="+msg);
+                response.sendRedirect("/login_signup?re=signfail&msg="+msg);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -92,17 +101,20 @@ public class AppController {
     }  
     
     @GetMapping("/products")
-    public String products(){
+    public String products(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
         return "products.html";
     }
 
     @GetMapping("/details")
-    public String details(){
+    public String details(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
         return "details.html";
     }
 
     @GetMapping("/profile")
     public String profile(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
         model.addAttribute("users",userDb.findAll());
         return "profile.html";
     }
