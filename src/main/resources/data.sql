@@ -2,12 +2,12 @@ INSERT INTO admin (firstname, surname, email, `password`) VALUES ('admin', 'admi
 /*The password is: password*/
 
 /* Products */
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1881,'title', 5, 300,'description', 'chair1_p1#chair1_p2#chair1_p3#chair1_p4#chair1_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1882,'title', 5, 300,'description', 'chair2_p1#chair2_p2#chair2_p3#chair2_p4#chair2_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1883,'title', 5, 300,'description', 'chair3_p1#chair3_p2#chair3_p3#chair3_p4#chair3_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1884,'title', 5, 300,'description', 'sofa1_p1#sofa1_p2#sofa1_p3#sofa1_p4#sofa1_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1885,'title', 5, 300,'description', 'sofa2_p1#sofa2_p2#sofa2_p3#sofa2_p4#sofa2_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1886,'title', 5, 300,'description', 'sofa3_p1#sofa3_p2#sofa3_p3#sofa3_p4#sofa3_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1887,'title', 5, 300,'description', 'table1_p1#table1_p2#table1_p3#table1_p4#table1_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1888,'title', 5, 300,'description', 'table2_p1#table2_p2#table2_p3#table2_p4#table2_p5');
-INSERT INTO product (id, title, stock, price, description, photos) VALUES (1889,'title', 5, 300,'description', 'table3_p1#table3_p2#table3_p3#table3_p4#table3_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1881,'title', 'chair', 5, 300,'description', 'chair1_p1#chair1_p2#chair1_p3#chair1_p4#chair1_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1882,'title', 'chair', 5, 300,'description', 'chair2_p1#chair2_p2#chair2_p3#chair2_p4#chair2_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1883,'title', 'chair', 5, 300,'description', 'chair3_p1#chair3_p2#chair3_p3#chair3_p4#chair3_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1884,'title', 'sofa', 5, 300,'description', 'sofa1_p1#sofa1_p2#sofa1_p3#sofa1_p4#sofa1_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1885,'title', 'sofa', 5, 300,'description', 'sofa2_p1#sofa2_p2#sofa2_p3#sofa2_p4#sofa2_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1886,'title', 'sofa', 5, 300,'description', 'sofa3_p1#sofa3_p2#sofa3_p3#sofa3_p4#sofa3_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1887,'title', 'table', 5, 300,'description', 'table1_p1#table1_p2#table1_p3#table1_p4#table1_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1888,'title', 'table', 5, 300,'description', 'table2_p1#table2_p2#table2_p3#table2_p4#table2_p5');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1889,'title', 'table', 5, 300,'description', 'table3_p1#table3_p2#table3_p3#table3_p4#table3_p5');

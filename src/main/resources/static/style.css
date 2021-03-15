@@ -233,6 +233,7 @@ li a:hover {background-color: #111;}
 .login_signupContainer img{
     width: 420px;
     padding-right: 20px;
+    border-radius: 5px;
 }
 
 .login_signupContainer button:hover{
@@ -251,12 +252,19 @@ li a:hover {background-color: #111;}
     border-bottom: #023246 1px solid;
     background-color: #0232460c;
 }
+
+.login_signupContainer th{
+    background-color: #023246;
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
+}
 .log_sign_err{
     color: rgb(255, 0, 0);
 }
 
 #signup_ok{
-    color: rgb(86, 255, 44);
+    color: #2e918c;
 }
 
 /*======== NEW DETAILS PAGE ========*/

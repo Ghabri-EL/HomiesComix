@@ -13,7 +13,10 @@ public class Product {
     private String title;
 
     @Column
-    private String stock;
+    private String category;
+
+    @Column
+    private int stock;
 
     @Column
     private double price;
@@ -26,9 +29,10 @@ public class Product {
 
     public Product(){}
 
-    public Product(int id, String title, String stock, double price, String photos){
+    public Product(int id, String title, String category, int stock, double price, String photos){
         this.id = id;
         this.title = title;
+        this.category = category;
         this.stock = stock;
         this.price = price;
         this.photos = photos;
@@ -50,11 +54,19 @@ public class Product {
         this.title = title;
     }
 
-    public String getStock() {
+    public String getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getStock() {
         return this.stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
@@ -81,4 +93,5 @@ public class Product {
     public void setPhotos(String photos) {
         this.photos = photos;
     }
+
 }
