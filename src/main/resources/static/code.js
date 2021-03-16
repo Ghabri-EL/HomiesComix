@@ -78,7 +78,6 @@ function viewUser(){
 
 function addView(){
     var user_details = this.responseText;
-    console.log(user_details);
     var viewPort= document.getElementById("profile_view");
     viewPort.innerHTML=user_details;
 }

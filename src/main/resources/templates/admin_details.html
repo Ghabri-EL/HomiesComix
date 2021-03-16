@@ -1,4 +1,4 @@
-<div id="user_details">
+<div id="admin_details">
     <table>
         <tbody th:with="user=${credentials.genUser}">
             <tr>
@@ -12,11 +12,7 @@
             <tr>
                 <td>Email:</td>
                 <td th:text="${user.email}"></td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td th:text="${user.address}"></td>
-            </tr>                        
+            </tr>                   
         </tbody>
     </table>   
 </div>

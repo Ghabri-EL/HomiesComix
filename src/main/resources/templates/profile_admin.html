@@ -29,10 +29,10 @@
         <div class="profileButtons">
             <table>
                 <tr>
-                    <td><button th:onclick="|viewOwner(${admin.id})|">User Details</button></td>
+                    <td><button onclick="viewUser()">User Details</button></td>
                 </tr>
                 <tr>
-                    <td><button>Orders History</button></td>
+                    <td><button>Orders</button></td>
                 </tr>
                 <tr>
                     <td><button>Features..</button></td>
@@ -40,7 +40,7 @@
             </table>
         </div>
         <div id="profile_view">
-            <p>Hello</p>
+            <p>Hello: <span th:text="${credentials.genUser.firstname}"></span></p>
         </div>
     </div>
 </body>

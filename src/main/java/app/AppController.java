@@ -50,8 +50,10 @@ public class AppController {
             if(admin != null){            
                 sessionCred.setCredentials(new Credentials(admin, true));
             }
-            
-            sessionCred.setCredentials(new Credentials(user));
+            else{
+                sessionCred.setCredentials(new Credentials(user));
+            }            
+        
             try {
                 response.sendRedirect("/");
             } catch (IOException e) {
@@ -141,6 +143,10 @@ public class AppController {
     @GetMapping("/userdetails")
     public String returnUserDetails(Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
+        System.out.println("=====================================================: "+ sessionCred.getCredentials().isAdmin());
+        if(sessionCred.getCredentials().isAdmin()){
+            return "admin_details.html";
+        }
         return "user_details.html";
     }
 }

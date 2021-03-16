@@ -195,12 +195,11 @@ li a:hover {background-color: #111;}
     background-color: #f0f0f0;
     height: auto;
     width: 70%;
-    margin-top: 100px;
-    margin-left: 220px;
+    margin: 100px auto 0px;
     align-items: center;
     border-radius: 10px;
     border: 2px solid #023246;
-
+    overflow: auto;
 }
 
 .login_signupContainer table{
