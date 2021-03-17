@@ -81,3 +81,15 @@ function addView(){
     var viewPort= document.getElementById("profile_view");
     viewPort.innerHTML=user_details;
 }
+
+function viewSellForm(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = returnSellView;
+    xhr.open("GET", "/sell_form");
+    xhr.send();
+}
+function returnSellView(){
+    var sell_form = this.responseText;
+    var viewPort = document.getElementById("profile_view");
+    viewPort.innerHTML=sell_form;
+}

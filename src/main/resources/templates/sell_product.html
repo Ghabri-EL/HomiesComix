@@ -1,0 +1,64 @@
+<div id="upload_product">
+    <form id="product_upload" action="/sell_product" method="POST" enctype="multipart/form-data">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sell Product</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label for="product_id">Product ID</label></td>
+                </tr>
+                <tr>
+                    <td> <input id="product_id" name="id" type="text" placeholder="Enter product id..." required pattern="[1-9]{1}[0-9]*$"/></td>
+                </tr>
+                <tr>
+                    <td><label for="product_title">Title</label></td>
+                </tr>
+                <tr>
+                    <td><input id="product_title" name="title" type="text" placeholder="Enter product title..."/></td>
+                </tr>
+                <tr>
+                    <td><label for="product_category">Category</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="category" id="product_category">
+                            <option volvo="Table" selected>Table</option>
+                            <option volvo="Chair">Chair</option>
+                            <option volvo="Sofa">Sofa</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="prod_stock">Quantity</label></td>
+                </tr>
+                <tr>
+                    <td><input id="prod_stock" name="stock" type="number" placeholder="Quantity..." min="0" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="prod_price">Price</label></td>
+                </tr>
+                <tr>
+                    <td><input id="prod_price" name="price" type="number" placeholder="0.99" min="0" step="0.01" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="prod_description">Description</label></td>
+                </tr>
+                <tr>
+                    <td><textarea id="prod_description" name="description" type="text" placeholder="Enter discription here..." form="product_upload" style="resize: none;"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="prod_imgs">Images</label></td>
+                </tr>
+                <tr>
+                    <td><input id="prod_imgs" type="file" name="images" accept=".jpeg, .jpg, .png" multiple/></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Sell</button></td>
+                </tr>                        
+            </tbody>
+        </table>  
+    </form> 
+</div>

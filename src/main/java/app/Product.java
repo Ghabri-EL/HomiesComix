@@ -29,12 +29,13 @@ public class Product {
 
     public Product(){}
 
-    public Product(int id, String title, String category, int stock, double price, String photos){
+    public Product(int id, String title, String category, int stock, double price, String description, String photos){
         this.id = id;
         this.title = title;
         this.category = category;
         this.stock = stock;
         this.price = price;
+        this.description = description;
         this.photos = photos;
     }
 

@@ -1,11 +1,13 @@
 package app;
 
 import java.io.IOException;
+import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class AppController {
@@ -21,6 +23,12 @@ public class AppController {
 
     @Autowired
     PasswordHandler passwordHandler;
+
+    @Autowired
+    ImageHandler imageHandler;
+
+    @Autowired
+    ProductRepository productDb;
 
     @GetMapping("/")
     public String homePage(Model model){
@@ -143,10 +151,36 @@ public class AppController {
     @GetMapping("/userdetails")
     public String returnUserDetails(Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
-        System.out.println("=====================================================: "+ sessionCred.getCredentials().isAdmin());
         if(sessionCred.getCredentials().isAdmin()){
             return "admin_details.html";
         }
         return "user_details.html";
+    }
+   
+    @PostMapping("/sell_product")
+    public void sellProduct(int id, String title, String category, int stock, double price,
+                            String description, @RequestParam(name = "images") MultipartFile[] images,
+                            HttpServletResponse response){
+        Optional<Product> findProduct = productDb.findById(id);         
+
+        if(findProduct.isPresent()){
+            Product saveProduct = findProduct.get();
+            saveProduct.setStock(saveProduct.getStock() + stock);
+            productDb.save(saveProduct);
+        }
+        else{
+            Product saveProduct = new Product(id, title, category, stock, price, description, imageHandler.saveImages(title, id, images));
+            productDb.save(saveProduct);
+        }
+        try {
+            response.sendRedirect("/products");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @GetMapping("/sell_form")
+    public String sellForm(){
+        return "sell_product.html";
     }
 }
