@@ -17,7 +17,8 @@ public class ImageHandler {
 
         for(int i = 0; i < images.length; i++){
             String fileExt = (images[i].getContentType().split("/"))[1];
-            String newFileName = title + id + "_p" + i + "." + fileExt;
+            String newFileName = id + "_p" + i + "." + fileExt;
+            newFileName = newFileName.toLowerCase();
             Path fileNamePath = Paths.get(IMAGE_FOLDER_PATH, newFileName);
             buildNameString.append(newFileName);
 
@@ -35,6 +36,6 @@ public class ImageHandler {
     }
 
     public String[] parseNamesString(String names){
-        return  names.split("#");
+        return names.split("#");
     }
 }

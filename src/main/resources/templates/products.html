@@ -24,7 +24,7 @@
         </ul>
     </nav>
 
-    <div class="gallery">
+    <div class="container gallery">
         <div class="galleryContainer">
 
             <h2 class="galleryTitle">THE SHOP</h2>
@@ -38,6 +38,20 @@
             </div>
 
             <!--Gallery Grid -->
+            <!--  -->
+            <div class="rowProducts">
+                <div th:class="|column ${product.category}|" th:each="product : ${products}" th:with="prod_img=${#strings.arraySplit(product.photos, '#')[0]}">                    
+                    <div class="content">
+                        <a th:href="@{/details/{id}(id=${product.id})}">
+                        <img th:src="@{(|images/${prod_img}|)}" alt="Table" style="width:100%">
+                        <h4 th:text="${product.title}"></h4>
+                        </a>
+                        <p>&euro; <span th:text="${product.price}"></span></p>
+                        <button onclick="addToCart()">Add to Cart</button>
+                    </div>                    
+                </div>
+            </div>
+            <!--
             <div class="rowProducts">
                 <div class="column table">
                     <div class="content">
@@ -104,7 +118,7 @@
                         <p>$$$$</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -112,5 +126,9 @@
     <script>
         filterSelection("all")
     </script>
+
+    <footer id="footer">
+        <p>Stay at homies &diams; 2021</p>
+    </footer>
 </body>
 </html>

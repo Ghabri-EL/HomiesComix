@@ -1,11 +1,13 @@
 package app;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Product {
+public class Product implements Serializable{
     @Id
     private int id;
 
@@ -21,10 +23,10 @@ public class Product {
     @Column
     private double price;
 
-    @Column
+    @Column(length = 1000)
     private String description;
 
-    @Column
+    @Column(length = 500)
     private String photos;
 
     public Product(){}
@@ -93,6 +95,17 @@ public class Product {
 
     public void setPhotos(String photos) {
         this.photos = photos;
+    }
+
+    public String getPhoto(int i){
+        if(photos.length() < 1){
+            return "";
+        }
+        String []pics = photos.split("#");
+        if(!(i > pics.length)){
+            return pics[i];
+        }
+        return photos;
     }
 
 }

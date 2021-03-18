@@ -268,9 +268,9 @@ li a:hover {background-color: #111;}
 
 /*======== NEW DETAILS PAGE ========*/
 .productsContainer{
-    width: 50%;
+    width:65%;
     float: left;
-    padding: 5% 2% 0 5%;
+    padding: 2%;
 }
 * {
     box-sizing: border-box;
@@ -291,8 +291,7 @@ img {
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+.prev, .next {
     cursor: pointer;
     position: absolute;
     top: 40%;
@@ -320,6 +319,8 @@ img {
 /*top text which image of 6, 1/6*/
 .numberText {
     color: #f2f2f2;
+    background-color: rgba(17, 17, 17, 0.226);
+    border-radius: 3px;
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
@@ -334,16 +335,19 @@ img {
     color: white;
 }
 
+.row{
+    overflow: auto;
+    display: flex;
+}
 .row:after {
     content: "";
     display: table;
-    clear: both;
+    clear: both;    
 }
 
 /* Six columns side by side */
 .columnDetail{
-    float: left;
-    width: 20%;
+    min-width: 20%;
 }
 
 /* transparency on bottom images */
@@ -355,15 +359,28 @@ img {
 .demo:hover {
     opacity: 1;
 }
-
-/*right side of page with info*/
-.detailContainer {
-    width: 50%;
-    margin: auto;
-    float: right;
-    padding: 5% 5% 0 2%;
+.detailDescription > :first-child{
+    padding: 15px;
+    border-bottom:#023246 1px solid;
 }
 
+.detailDescription p{
+    padding-top: 15px;
+    white-space: pre-wrap;
+}
+
+/*container that wraps all of the content block elements on the page*/
+.detailContainer {
+    background-color: #f0f0f0;
+    width: 90%;
+    margin: auto;
+    padding: 2%;
+}
+/*right side of page with info*/
+#detailsTable{
+    width: 30%;
+    float: left;
+}
 /*title text*/
 .detailsTitle {
     font-size: 35px;
@@ -378,6 +395,11 @@ img {
 /*button spacing*/
 .detailBuying {
     padding-top: 5%;
+}
+.detailDescription{
+    clear: both;
+    width: 100%;
+    padding: 10px;
 }
 
 /*======== PRODUCTS PAGE ========*/
@@ -453,7 +475,7 @@ h4 {
     background-color: #0F3C5C;
     color: white;
 }
-/*======== PRODUCTS PAGE ========*/
+
 .profileContainer{
     max-width: 80%;
     margin: auto;
@@ -496,4 +518,41 @@ h4 {
 .profileButtons button:hover {
     background-color: #111;
     border-right: 3px solid white;
+}
+
+/* ========== FOOTER STYLE ========== */
+#footer{
+    background-color: #023246;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#footer p{
+    width: 100%;
+    color: rgba(255, 255, 255, 0.438);
+    font-style:italic;
+}
+
+/* ========== SCROLL BAR STYLE ========== */
+/* width */
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Bar color */
+::-webkit-scrollbar-track {
+  background: #cacaca; 
+}
+ 
+/* Bar drag handle */
+::-webkit-scrollbar-thumb {
+  background:#023246
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:#111;
 }

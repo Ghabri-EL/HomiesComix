@@ -122,13 +122,26 @@ public class AppController {
     @GetMapping("/products")
     public String products(Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
+        model.addAttribute("products", productDb.findAll());
         return "products.html";
     }
 
-    @GetMapping("/details")
-    public String details(Model model){
+    @GetMapping("/details/{id}")
+    public String details(@PathVariable("id") Integer id, Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
+        Optional<Product> findProduct = productDb.findById(id);   
+        Product product = findProduct.get();
+        model.addAttribute("product", product);
         return "details.html";
+    }
+    //For acess to details page without a product id
+    @GetMapping("/details")
+    public void detailsNull(HttpServletResponse response){
+        try {
+            response.sendRedirect("/");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping("/profile")
@@ -169,7 +182,7 @@ public class AppController {
             productDb.save(saveProduct);
         }
         else{
-            Product saveProduct = new Product(id, title, category, stock, price, description, imageHandler.saveImages(title, id, images));
+            Product saveProduct = new Product(id, title, category.toLowerCase(), stock, price, description, imageHandler.saveImages(title, id, images));
             productDb.save(saveProduct);
         }
         try {
