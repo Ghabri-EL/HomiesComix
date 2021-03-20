@@ -202,10 +202,9 @@ public class AppController {
         Product product = findProduct.get();
         cartItem.setProduct(product);
         cartItem.computeSubtotal();
-        System.out.println(":::" + cartItem.getId());
-        System.out.println(":::" + cartItem.getQuantity());
         boolean result = shoppingCart.addItem(cartItem);
         String msg="";
+        
         if(result){
             msg="&diams; Product added successfully to the shopping cart &diams;";
         }

@@ -12,7 +12,7 @@
 <body>
     <nav th:fragment="navbar">
         <ul>
-            <li><a class="cartImage" href="/cart"><img src="images/cart.png" alt="Shopping Cart"></a></li>
+            <li><a class="cartImage" href="/cart"><img src="/images/cart.png" alt="Shopping Cart"></a></li>
            <!-- <li><a href="/login_signup">Sign up/Login</a></li>-->
            <li><a th:href="@{(${credentials == null} ? '/login_signup': '/logout')}" th:text="${credentials} ? 'LogOut' : 'Sign up/Login'"></a></li>
            <li><a href="/profile">Profile</a></li>
@@ -85,7 +85,7 @@
         </table>
     </div>
     <footer id="footer" th:fragment="footer">
-        <p>Stay at homies &diams; 2021</p>
+        <p>Stay at Homies &diams; 2021</p>
     </footer>
 </body>
 </html>

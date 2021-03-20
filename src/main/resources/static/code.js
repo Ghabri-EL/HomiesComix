@@ -131,7 +131,7 @@ function displayMessage(msg){
     var msgDiv= document.createElement("div");
     msgDiv.id = "add_to_cart_msg";
     var divStyle = "height: 25px; width: 100%; background-color:#08607a; color:white;\
-    position:absolute; bottom: 0; left: 0; right: 0; z-index: +1; text-align: center;\
+    position:fixed; bottom: 0; left: 0; right: 0; z-index: +1; text-align: center;\
     border: white solid 1px; border-radius: 2px;"
     msgDiv.style.cssText = divStyle;
     msgDiv.innerHTML="<p>" + msg + "</p>"

@@ -269,9 +269,9 @@ li a:hover {background-color: #111;}
 
 /*======== NEW DETAILS PAGE ========*/
 .productsContainer{
-    width:65%;
+    width:60%;
     float: left;
-    padding: 2%;
+    padding: 5%;
 }
 * {
     box-sizing: border-box;
@@ -381,6 +381,7 @@ img {
 #detailsTable{
     width: 30%;
     float: left;
+    margin-top: 10%;
 }
 /*title text*/
 .detailsTitle {
