@@ -9,6 +9,7 @@ html, body{
     width: 100%;
     min-height: 100%;
     height: 100%;
+    font-family: 'Abhaya Libre';
 }
 
 /*Top nav bar Roland*/
@@ -555,4 +556,111 @@ h4 {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background:#111;
+}
+
+/* ========== SHOPPING CART PAGE STYLE ========== */
+
+/* Overall container */
+.cart_container{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+/* Header style */
+#cart_header{
+    font-size: 135%;
+    width: 100%;
+    flex-basis: 100%;
+    padding: 15px;
+    border-bottom: #023246 solid 1px;
+}
+
+/* Item panels container*/
+.cart_items_panels{
+    width:  75%;
+    min-width: 400px;
+    flex-grow: 1;
+    padding: 1%;
+    margin: 1%;
+    box-shadow: rgb(224, 224, 224) 1px 1px 5px;
+    border-radius: 4px;
+}
+/* Container for each item*/
+.cart_item{
+    box-shadow: rgb(228, 228, 228) 1px 1px 6px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: flex;
+}
+/* Item image style*/
+#cart_item_img{
+    width: 15%;
+    padding: 2px;
+}
+#cart_item_img img{
+    width: 100%;
+}
+
+/* Details of the style container and its elements*/
+#cart_item_details{
+    display: flex;
+    width: 80%;
+    padding: 10px 10px 10px 20px;
+    justify-content:space-around;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+#cart_item_title{
+    flex-basis: 100%;
+    width: 100%;
+    font-weight: 600;
+}
+
+#item_remove_btn{
+    padding: 5px;
+    cursor: pointer;
+    font-family: 'Abhaya Libre';
+    text-align: center;
+    background-color: #0F3C5C;
+    border: white solid 2px;
+    border-radius: 4px;
+    color: white;
+    transition: linear .2s;
+}
+
+/* Side panel*/
+#cart_sidepanel{
+    width: 20%;
+    min-width: 170px;
+    max-width: 50%;
+    max-height: 200px;
+    margin: 1%;
+    padding: 1%;
+    flex-grow: 1;
+    box-shadow: rgb(224, 224, 224) 1px 1px 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content:center;
+    flex-flow: column wrap;
+}
+
+#checkout_button{
+    width: 70%;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 120%;
+    font-family: 'Abhaya Libre';
+    text-align: center;
+    background-color: #0F3C5C;
+    color: white;
+    transition: linear .2s;
+    border: white solid 2px;
+    border-radius: 4px;
 }

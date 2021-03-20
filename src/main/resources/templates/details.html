@@ -9,7 +9,7 @@
 <body>
     <nav>
         <ul>
-            <li><a class="cartImage" href="#cart"><img src="/images/cart.png" alt="Shopping Cart"></a></li>
+            <li><a class="cartImage" href="/cart" ><img src="/images/cart.png" alt="Shopping Cart"></a></li>
             <li><a th:href="@{(${credentials == null} ? '/login_signup': '/logout')}" th:text="${credentials} ? 'LogOut' : 'Sign up/Login'"></a></li>
             <li><a href="/profile">Profile</a></li>
             <div class="dropdown">
@@ -56,13 +56,13 @@
                 <th class="detailsTitle" th:text="|&euro;${product.price}|"></th>
             </tr>
             <tr>
-                <td align="center">
-                    <form class="detailBuying">
+                <td align="center">                    
                         <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" max="5">
-                        <input type="submit" value="Add to Cart">
-                    </form>
+                        <input type="number" id="quantity" name="quantity" min="1" max="5" value="1">                        
                 </td>
+            </tr>
+            <tr>
+                <td><button th:onclick="|addToCart(${product.id})|">Add to Cart</button></td>
             </tr>
         </table>
 
@@ -74,6 +74,6 @@
 
     <footer id="footer">
         <p>Stay at homies &diams; 2021</p>
-    </footer>     
+    </footer>
 </body>
 </html>

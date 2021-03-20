@@ -28,5 +28,4 @@ public class PasswordHandler {
     public boolean match(String pwd1, String pwd2){
         return pwd1.equals(hashPass(pwd2));
     }
-
 }

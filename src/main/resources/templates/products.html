@@ -9,7 +9,7 @@
 <body>
     <nav>
         <ul>
-            <li><a class="cartImage" href="#cart"><img src="images/cart.png" alt="Shopping Cart"></a></li>
+            <li><a class="cartImage" href="/cart"><img src="images/cart.png" alt="Shopping Cart"></a></li>
             <li><a th:href="@{(${credentials == null} ? '/login_signup': '/logout')}" th:text="${credentials} ? 'LogOut' : 'Sign up/Login'"></a></li>
             <li><a href="/profile">Profile</a></li>
             <div class="dropdown">
@@ -47,78 +47,10 @@
                         <h4 th:text="${product.title}"></h4>
                         </a>
                         <p>&euro; <span th:text="${product.price}"></span></p>
-                        <button onclick="addToCart()">Add to Cart</button>
+                        <button th:onclick="|addToCart(${product.id})|">Add to Cart</button>
                     </div>                    
                 </div>
             </div>
-            <!--
-            <div class="rowProducts">
-                <div class="column table">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Table" style="width:100%"></a>
-                        <h4>Table</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-                <div class="column table">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Table" style="width:100%"></a>
-                        <h4>Table</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-                <div class="column table">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Table" style="width:100%"></a>
-                        <h4>Table</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-
-                <div class="column chair">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Chair" style="width:100%"></a>
-                        <h4>Chair</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-                <div class="column chair">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Chair" style="width:100%"></a>
-                        <h4>Chair</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-                <div class="column chair">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Chair" style="width:100%"></a>
-                        <h4>Chair</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-
-                <div class="column couch">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Couch" style="width:100%"></a>
-                        <h4>Couch</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-                <div class="column couch">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Couch" style="width:100%"></a>
-                        <h4>Couch</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-                <div class="column couch">
-                    <div class="content">
-                        <a href="/details"><img src="images/test_table.jpg" alt="Couch" style="width:100%"></a>
-                        <h4>Couch</h4>
-                        <p>$$$$</p>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 

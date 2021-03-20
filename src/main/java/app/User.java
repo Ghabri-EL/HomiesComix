@@ -1,10 +1,11 @@
 package app;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class User extends GeneralUser{    
+public class User extends GeneralUser implements Serializable{    
     @Column
     private String address;
 

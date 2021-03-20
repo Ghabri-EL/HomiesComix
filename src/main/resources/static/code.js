@@ -93,3 +93,52 @@ function returnSellView(){
     var viewPort = document.getElementById("profile_view");
     viewPort.innerHTML=sell_form;
 }
+
+//========== SHOPPING CART PAGE ========
+function addToCart(id){
+    var cartItem = {
+        id,
+        product: null,
+        quantity : document.getElementById("quantity").value
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.onload = addItemResponse;
+    xhr.open("POST", "/addToCart")
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(cartItem));
+}
+
+function addItemResponse(){
+    var response = this.responseText;
+    displayMessage(response);
+}
+//creates a div to display if a prodcut has been added to the cart
+function displayMessage(msg){
+    var msgDiv= document.createElement("div");
+    msgDiv.id = "add_to_cart_msg";
+    var divStyle = "height: 25px; width: 100%; background-color:#08607a; color:white;\
+    position:absolute; bottom: 0; left: 0; right: 0; z-index: +1; text-align: center;\
+    border: white solid 1px; border-radius: 2px;"
+    msgDiv.style.cssText = divStyle;
+    msgDiv.innerHTML="<p>" + msg + "</p>"
+    document.body.appendChild(msgDiv);
+    setTimeout(function (){document.getElementById("add_to_cart_msg").remove();}, 2000);
+}
+
+function removeProduct(id){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = removeProductResponse;
+    xhr.open("GET", "/remove_product/" + id)
+    xhr.send();
+}
+function removeProductResponse(){
+    var response = this.responseText;
+    var divId = "cart_item_" + response;
+    alert(divId);
+    document.getElementById(divId).remove();
+}
+
+function checkoutAlert(){
+    var msg = "Please log in to checkout. Thank you";
+    displayMessage(msg);
+}

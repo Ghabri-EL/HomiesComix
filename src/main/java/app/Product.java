@@ -102,10 +102,9 @@ public class Product implements Serializable{
             return "";
         }
         String []pics = photos.split("#");
-        if(!(i > pics.length)){
+        if(!(i >= pics.length)){
             return pics[i];
         }
         return photos;
     }
-
 }

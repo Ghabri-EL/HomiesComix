@@ -30,6 +30,9 @@ public class AppController {
     @Autowired
     ProductRepository productDb;
 
+    @Autowired
+    ShoppingCart shoppingCart;
+
     @GetMapping("/")
     public String homePage(Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
@@ -134,7 +137,7 @@ public class AppController {
         model.addAttribute("product", product);
         return "details.html";
     }
-    //For acess to details page without a product id
+    //Deny access to details page without a product id
     @GetMapping("/details")
     public void detailsNull(HttpServletResponse response){
         try {
@@ -182,7 +185,7 @@ public class AppController {
             productDb.save(saveProduct);
         }
         else{
-            Product saveProduct = new Product(id, title, category.toLowerCase(), stock, price, description, imageHandler.saveImages(title, id, images));
+            Product saveProduct = new Product(id, title, category.toLowerCase(), stock, price, description, imageHandler.saveImages(id, images));
             productDb.save(saveProduct);
         }
         try {
@@ -195,5 +198,38 @@ public class AppController {
     @GetMapping("/sell_form")
     public String sellForm(){
         return "sell_product.html";
+    }
+
+    @GetMapping("/cart")
+    public String cart(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
+        model.addAttribute("shop_cart", shoppingCart);
+        return "shop_cart.html";
+    }
+
+    @PostMapping("/addToCart")
+    public @ResponseBody String addToCart(@RequestBody CartItem cartItem){
+        Optional<Product> findProduct = productDb.findById(cartItem.getId());
+        Product product = findProduct.get();
+        cartItem.setProduct(product);
+        cartItem.computeSubtotal();
+        System.out.println(":::" + cartItem.getId());
+        System.out.println(":::" + cartItem.getQuantity());
+        boolean result = shoppingCart.addItem(cartItem);
+        System.out.println("================================== : "+ result);
+        String msg="";
+        if(result){
+            msg="&diams; Product added successfully to the shopping cart &diams;";
+        }
+        else{
+            msg="&diams; Failed to add product to shopping cart &diams;";
+        }
+        return  msg;
+    }
+
+    @GetMapping("/remove_product/{id}")
+    public @ResponseBody Integer removeProduct(@PathVariable int id){
+        shoppingCart.removeItem(id);
+        return id;
     }
 }
