@@ -10,7 +10,7 @@
     <title>StayAtHomies</title>
 </head>
 <body>
-    <nav>
+    <nav th:fragment="navbar">
         <ul>
             <li><a class="cartImage" href="/cart"><img src="images/cart.png" alt="Shopping Cart"></a></li>
            <!-- <li><a href="/login_signup">Sign up/Login</a></li>-->
@@ -84,7 +84,7 @@
             </tr>
         </table>
     </div>
-    <footer id="footer">
+    <footer id="footer" th:fragment="footer">
         <p>Stay at homies &diams; 2021</p>
     </footer>
 </body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <link rel="stylesheet" href="../static/style.css">-->
+    <link rel="stylesheet" th:href="style.css">
+    <script type="text/javascript" src="code.js"></script>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <nav th:replace="home :: navbar"> </nav>
+
+    <th:block th:if="${credentials} == null">
+        <th:block th:replace="profile_view :: guest_view"></th:block>
+    </th:block>
+    <th:block th:unless="${credentials} == null">
+
+        <th:block th:if="${credentials.admin}">
+            <th:block th:replace="profile_view :: admin_view"></th:block>
+        </th:block>
+
+        <th:block th:unless="${credentials.admin}">
+            <th:block th:replace="profile_view :: user_view"></th:block>
+        </th:block>
+    </th:block>
+
+    <th:block th:replace="home :: footer"></th:block>
+</body>
+</html>

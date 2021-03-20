@@ -150,18 +150,7 @@ public class AppController {
     @GetMapping("/profile")
     public String profile(Model model){        
         model.addAttribute("credentials", sessionCred.getCredentials());
-        String page = "profile_restrict.html";
-
-        if(sessionCred.getCredentials() == null){
-            return page;
-        }
-        else if(sessionCred.getCredentials().isAdmin()){
-            page = "profile_admin.html";
-        }
-        else{
-            page = "profile_user.html";
-        }
-        return page;
+        return "profile.html";
     }
 
     @GetMapping("/userdetails")
@@ -216,7 +205,6 @@ public class AppController {
         System.out.println(":::" + cartItem.getId());
         System.out.println(":::" + cartItem.getQuantity());
         boolean result = shoppingCart.addItem(cartItem);
-        System.out.println("================================== : "+ result);
         String msg="";
         if(result){
             msg="&diams; Product added successfully to the shopping cart &diams;";
