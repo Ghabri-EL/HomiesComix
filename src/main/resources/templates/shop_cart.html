@@ -25,30 +25,34 @@
     </nav>
 
     <div class="container cart_container">
-        <th:block>
-
-        </th:block>
         <p id="cart_header">Shopping Cart</p>
-        <div class="cart_items_panels">
-            <th:block th:each="item: ${shop_cart.cartItems}">
-                <dev class="cart_item" th:id="|cart_item_${item.id}|">
-                    <div id="cart_item_img">
-                        <img th:src="@{(|/images/${#strings.arraySplit(item.product.photos, '#')[0]}|)}" th:alt="${item.product.title}"/>
-                    </div>
-                    <div id="cart_item_details">
-                        <p id="cart_item_title" th:text="${item.product.title}"></p>
-                        <p id="cart_item_price" th:text="|Price: &euro;${item.product.price}|"></p>
-                        <p id="cart_item_qty" th:text="|Qty: ${item.quantity}|"></p>
-                        <p id="cart_item_subtot" th:text="|Subtotal: &euro;${item.subtotal}|"></p>
-                        <button id="item_remove_btn" th:onclick="|removeProduct(${item.id})|">Remove</button>
-                    </div>
-                </dev>
-            </th:block>
-        </div>
-        <div id="cart_sidepanel">
-            <h3>Total: <span th:text="|&euro; ${shop_cart.total}|"> </span></h3>
-            <button id="checkout_button" th:onclick="${credentials != null} ? 'checkout()' : 'checkoutAlert()'">Checkout</button>
-        </div>
+
+        <th:block th:if="${#arrays.isEmpty(shop_cart.cartItems)}">
+            <div id="empty_cart_msg"><h2>&diams; Shopping cart is empty &diams;</h2></div>
+        </th:block>
+
+        <th:block th:unless="${#arrays.isEmpty(shop_cart.cartItems)}">
+            <div class="cart_items_panels" id="cart_items_panels_id">
+                <th:block th:each="item: ${shop_cart.cartItems}">
+                    <dev class="cart_item" th:id="|cart_item_${item.id}|">
+                        <div class="cart_item_img" th:id="|item_img_${item.id}|">
+                            <img th:src="@{(|/images/${#strings.arraySplit(item.product.photos, '#')[0]}|)}" th:alt="${item.product.title}"/>
+                        </div>
+                        <div class="cart_item_details">
+                            <p class="cart_item_title" th:id="|item_title_${item.id}|" th:text="${item.product.title}"></p>
+                            <p class="cart_item_price" th:id="|item_price_${item.id}|" th:text="|Price: &euro;${item.product.price}|"></p>
+                            <p class="cart_item_qty" th:id="|item_qty_${item.id}|" th:text="|Qty: ${item.quantity}|"></p>
+                            <p class="cart_item_subtot" th:id="|item_subtot_${item.id}|" th:text="|Subtotal: &euro;${item.subtotal}|"></p>
+                            <button id="item_remove_btn" th:onclick="|removeProduct(${item.id})|">Remove</button>
+                        </div>
+                    </dev>
+                </th:block>
+            </div>
+            <div id="cart_sidepanel">
+                <h3>Total: <span th:text="|&euro; ${shop_cart.total}|"> </span></h3>
+                <button id="checkout_button" th:onclick="${credentials != null} ? 'checkout()' : 'checkoutAlert()'">Checkout</button>
+            </div>
+        </th:block>
     </div>
 
     <footer id="footer">

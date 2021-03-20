@@ -28,10 +28,13 @@ public class ShoppingCart {
     }
 
     public void removeItem(int id){
+        int index = 0;
         for(CartItem item : cartItems){
             if(item.getId() == id){
-                cartItems.remove(item);
+                cartItems.remove(index);
+                break;
             }
+            index++;
         }
     }
     
@@ -63,16 +66,18 @@ public class ShoppingCart {
     }
 
     public void subtractItem(int id, int qty){
+        int index = 0;
         for(CartItem item : cartItems){
             if(item.getId() == id){
                 if(item.getQuantity() <= 1 || qty >= item.getQuantity()){
-                    cartItems.remove(item);
+                    cartItems.remove(index);
                 }
                 else{
                     int newQty = item.getQuantity() - qty;
                     item.setQuantity(newQty);
                 }                
             }
+            index++;
         } 
     }
 }

@@ -112,7 +112,21 @@ function addItemResponse(){
     var response = this.responseText;
     displayMessage(response);
 }
-//creates a div to display if a prodcut has been added to the cart
+// To add just one item to cart from the catalog(products page)
+function addOneToCart(id){
+    var cartItem = {
+        id,
+        product: null,
+        quantity : 1
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.onload = addItemResponse;
+    xhr.open("POST", "/addToCart")
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(cartItem));
+}
+
+//creates a div to display a message, such as if a product has been added to the shopping cart
 function displayMessage(msg){
     var msgDiv= document.createElement("div");
     msgDiv.id = "add_to_cart_msg";
@@ -134,11 +148,16 @@ function removeProduct(id){
 function removeProductResponse(){
     var response = this.responseText;
     var divId = "cart_item_" + response;
-    alert(divId);
+    //alert(divId);
     document.getElementById(divId).remove();
+    //if all the items have been removed from the cart, refresh the page
+    var itemsDisplayed = document.getElementById("cart_items_panels_id").childElementCount;
+    if(itemsDisplayed === 0){
+        location.reload();
+    }
 }
 
 function checkoutAlert(){
-    var msg = "Please log in to checkout. Thank you";
+    var msg = "&diams; Please log in to checkout. Thank you &diams;";
     displayMessage(msg);
 }

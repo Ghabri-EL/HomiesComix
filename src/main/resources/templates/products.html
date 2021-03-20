@@ -47,7 +47,7 @@
                         <h4 th:text="${product.title}"></h4>
                         </a>
                         <p>&euro; <span th:text="${product.price}"></span></p>
-                        <button th:onclick="|addToCart(${product.id})|">Add to Cart</button>
+                        <button th:onclick="|addOneToCart(${product.id})|">Add to Cart</button>
                     </div>                    
                 </div>
             </div>
