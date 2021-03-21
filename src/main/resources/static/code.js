@@ -82,6 +82,19 @@ function addView(){
     viewPort.innerHTML=user_details;
 }
 
+function viewOrder(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = addOrderView;
+    xhr.open("GET", "/userorders");
+    xhr.send();
+}
+
+function addOrderView(){
+    var order_view = this.responseText;
+    var viewPort= document.getElementById("profile_view");
+    viewPort.innerHTML=order_view;
+}
+
 function viewSellForm(){
     var xhr = new XMLHttpRequest();
     xhr.onload = returnSellView;
