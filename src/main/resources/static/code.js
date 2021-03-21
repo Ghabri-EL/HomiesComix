@@ -85,7 +85,7 @@ function addView(){
 function viewOrder(){
     var xhr = new XMLHttpRequest();
     xhr.onload = addOrderView;
-    xhr.open("GET", "/userorders");
+    xhr.open("GET", "/userOrders");
     xhr.send();
 }
 
