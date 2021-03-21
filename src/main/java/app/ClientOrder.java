@@ -1,11 +1,14 @@
 package app;
 
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,6 +18,9 @@ public class ClientOrder {
     private long id;
 
     @Column
+    private String orderNumber;
+
+    @Column
     private String status;
 
     @Column
@@ -22,8 +28,11 @@ public class ClientOrder {
 
     @Column 
     private double total;
+
+    @ManyToOne()
+    private User user;
     
-    @OneToMany(mappedBy = "clientOrder")
+    @OneToMany(mappedBy = "clientOrder", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
     public long getId() {
@@ -32,6 +41,14 @@ public class ClientOrder {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getOrderNumber() {
+        return this.orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public String getStatus() {
@@ -62,6 +79,14 @@ public class ClientOrder {
         return this.orderItems;
     }
 
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
