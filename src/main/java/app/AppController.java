@@ -136,7 +136,7 @@ public class AppController {
     @GetMapping("/products")
     public String products(Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
-        model.addAttribute("products", productDb.findAll());
+        model.addAttribute("products", productDb.findOnlyInStock());
         return "products.html";
     }
 
@@ -218,7 +218,7 @@ public class AppController {
         cartItem.setImage(product.getPhoto(0));
         cartItem.computeSubtotal();
         boolean result = shoppingCart.addItem(cartItem);
-        
+
         if(result){
             msg="&diams; Product added successfully to the shopping cart &diams;";
         }

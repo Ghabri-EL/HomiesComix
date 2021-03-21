@@ -422,8 +422,10 @@ img {
     padding: 7px 10px;
     cursor: pointer;
     font-family: 'Abhaya Libre';
+    font-size: 110%;
+    letter-spacing: 2px;
     text-align: center;
-    background-color: #0F3C5C;
+    background-color: #023246;
     color: white;
     transition: linear .15s;
     border: rgb(49, 49, 49) solid 2px;
