@@ -1,16 +1,13 @@
 <div>
     <table>
+        <tbody th:with="user=${credentials.genUser}">
         <tr>
             <td>Order History for:</td>
-<!--            <td th:text="${user.firstname}"></td>-->
+            <td th:text="${user.firstname}"></td>
         </tr>
         <tr>
             <td>Order:</td>
 <!--            <td th:text="${user.listoforders}"></td>-->
-        </tr>
-        <tr>
-            <td>Shipped to:</td>
-<!--            <td th:text="${user.address}"></td>-->
         </tr>
         </tbody>
     </table>

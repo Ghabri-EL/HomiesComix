@@ -251,7 +251,8 @@ public class AppController {
     }
 
     @GetMapping("/userOrders")
-    public String orderView(){
+    public String orderView(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
         return "order_view.html";
     }
 }
