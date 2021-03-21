@@ -5,7 +5,7 @@
     <nav th:replace="home :: navbar"> </nav>
 
     <div class="container cart_container">
-        <p id="cart_header">Shopping Cart</p>
+        <h2 id="cart_header">Shopping Cart</h2>
 
         <th:block th:if="${#arrays.isEmpty(shop_cart.cartItems)}">
             <div id="empty_cart_msg"><h2>&diams; Shopping cart is empty &diams;</h2></div>
