@@ -8,14 +8,7 @@
             <li><a class="cartImage" href="/cart"><img src="images/cart.png" alt="Shopping Cart"></a></li>
             <li><a th:href="@{(${credentials == null} ? '/login_signup': '/logout')}" th:text="${credentials} ? 'LogOut' : 'Sign up/Login'"></a></li>
             <li><a href="/profile">Profile</a></li>
-            <div class="dropdown">
-                <button class="dropButton" href="#products">Products</button>
-                <div class="dropdownContent">
-                    <a href="/products">Tables</a>
-                    <a href="/products">Chairs</a>
-                    <a href="/products">Couches</a>
-                </div>
-            </div>
+            <li><a href="/products">Products</a></li>
             <li style="float: left"><a class ="logo" href="/">StayAtHomies</a></li>
         </ul>
     </nav>

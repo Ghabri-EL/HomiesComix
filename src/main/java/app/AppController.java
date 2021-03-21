@@ -305,4 +305,10 @@ public class AppController {
         int number = rand.nextInt(10000) + 1000;
         return number + "" + id;
     }
+
+    @GetMapping("/userOrders")
+    public String orderView(Model model){
+        model.addAttribute("credentials", sessionCred.getCredentials());
+        return "order_view.html";
+    }
 }

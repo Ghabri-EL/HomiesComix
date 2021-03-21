@@ -49,60 +49,11 @@ li a:hover {background-color: #111;}
 
 .logo a:hover {background-color: #023246;}
 
-.slogan {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #D4D3CE;
-    font-family: 'Abhaya Libre';
-    font-size: 50px;
-}
-
 /*Shopping cart image clickable*/
 .cartImage img{
     height: 20px;
     width: 20px;
 }
-
-/* dropdown menu */
-.dropdown {
-    float: right;
-    overflow: hidden;
-}
-
-.dropdown .dropButton {
-    background-color: #023246;
-    color: #D4D3CE;
-    font-size: 20px;
-    font-family: 'Abhaya Libre';
-    text-align: center;
-    outline: none;
-    border: none;
-    padding: 14px 16px;
-}
-
-.dropdownContent {
-    display: none;
-    position: absolute;
-    background-color: #023246;
-    font-size: 20px;
-    font-family: 'Abhaya Libre';
-    text-align: center;
-    min-width: 100px;
-    z-index: 1;
-}
-
-.dropdownContent a {
-    color: #D4D3CE;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown:hover .dropButton{background-color: #111;}
-.dropdownContent a:hover {background-color: #111;}
-.dropdown:hover .dropdownContent {display: block;}
 
 /*-----------------HOMEPAGE-----------------***/
 /*Latest product section of homepage*/
