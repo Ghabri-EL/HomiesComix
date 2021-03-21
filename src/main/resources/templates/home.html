@@ -24,54 +24,20 @@
         <div style="overflow: auto;">
             <table class="mainContainer" align="center">
                 <tr>
-                    <th class="latestProductsTxt" colspan="4">New In Store</th>
+                    <th class="latestProductsTxt" colspan="4">Offers In Store</th>
                 </tr>
                 <tr>
-                    <td class="latestProductCol" >
-                        <a href="/details">
+                    <td class="latestProductCol" th:each="product : ${products}">
+                        <a th:href="@{/details/{id}(id=${product.id})}">
                             <figure class="hover-img">
-                                <img src="images/test_table.jpg" width="100%">
+                                <img th:src="|/images/${#strings.arraySplit(product.photos, '#')[0]}|" width="100%">
                                     <figcaption>
-                                        <h3>Product Name</h3>
-                                        <h5>Price</h5>
+                                        <h3 th:text="${product.title}">Product Name</h3>
+                                        <h5 th:text="|&euro; ${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}|"></h5>
                                     </figcaption>
                             </figure>
                         </a>
-                    </td>
-                    <td class="latestProductCol" >
-                        <a href="/details">
-                            <figure class="hover-img">
-                                <img src="images/test_table.jpg" width="100%">
-                                <figcaption>
-                                    <h3>Product Name</h3>
-                                    <h5>Price</h5>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </td>
-                    <td class="latestProductCol" >
-                        <a href="/details">
-                            <figure class="hover-img">
-                                <img src="images/test_table.jpg" width="100%">
-                                <figcaption>
-                                    <h3>Product Name</h3>
-                                    <h5>Price</h5>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </td>
-                    <td class="latestProductCol" >
-                        <a href="/details">
-                            <figure class="hover-img">
-                                <img src="images/test_table.jpg" width="100%">
-                                <figcaption>
-                                    <h3>Product Name</h3>
-                                    <h5>Price</h5>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </td>
-                </tr>
+                    </td>                    
             </table>
         </div>
     </div>

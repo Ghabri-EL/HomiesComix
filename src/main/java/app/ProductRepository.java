@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("FROM Product where stock > 0")
     List<Product> findOnlyInStock();
+
+    @Query(value="SELECT * FROM Product ORDER BY stock DESC LIMIT 5", nativeQuery = true)
+    List<Product> findByHighestStock();
 }

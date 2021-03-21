@@ -23,7 +23,7 @@
                 <div th:class="|column ${product.category}|" th:each="product : ${products}" th:with="prod_img=${#strings.arraySplit(product.photos, '#')[0]}">                    
                     <div class="content">
                         <a th:href="@{/details/{id}(id=${product.id})}">
-                        <img th:src="@{(|images/${prod_img}|)}" alt="Table" width="100%" height="100%">
+                        <img th:src="@{(|images/${prod_img}|)}" alt="Table" width="100%">
                         <h4 th:text="${product.title}"></h4>
                         </a>
                         <p>&euro; <span th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}"></span></p>

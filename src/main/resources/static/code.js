@@ -128,7 +128,6 @@ function addItemResponse(){
 function addOneToCart(id){
     var cartItem = {
         id,
-        product: null,
         quantity : 1
     }
     var xhr = new XMLHttpRequest();
@@ -162,6 +161,25 @@ function removeProductResponse(){
     var divId = "cart_item_" + response;
     document.getElementById(divId).remove();
     //reload to show the new total and display empty cart message if all items are removed
+    location.reload();
+}
+function changeCartQuantity(id){
+    var cartItem = {
+        id,
+        quantity : document.getElementById("item_qty_" + id).value
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.onload = changeQuantityResponse;
+    xhr.open("POST", "/change_quantity")
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(cartItem));
+}
+function changeQuantityResponse(){
+    var response = this.responseText;
+    alert(response);
+    if(response != 0){
+        document.getElementById("item_qty_" + response).value = 1;
+    }
     location.reload();
 }
 

@@ -6,13 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class AppController {
@@ -46,6 +48,8 @@ public class AppController {
 
     @GetMapping("/")
     public String homePage(Model model){
+        List<Product> list = productDb.findByHighestStock();
+        model.addAttribute("products", list);
         model.addAttribute("credentials", sessionCred.getCredentials());
         return "home.html";
     }
@@ -223,6 +227,19 @@ public class AppController {
             msg="&diams; Product added successfully to the shopping cart &diams;";
         }
         return  msg;
+    }
+
+    @PostMapping("/change_quantity")
+    public @ResponseBody Integer changeQuantity(@RequestBody CartItem cartItem){
+        if(cartItem.getQuantity() == 0){
+            return cartItem.getId();
+        }
+        boolean result = shoppingCart.changeQuantity(cartItem);
+        if(!result){
+            //if false return id to change the value to 1
+           return cartItem.getId(); 
+        }
+        return 0;
     }
 
     @GetMapping("/remove_product/{id}")

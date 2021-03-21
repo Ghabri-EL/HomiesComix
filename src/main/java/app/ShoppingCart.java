@@ -34,6 +34,25 @@ public class ShoppingCart {
         total = sum;
     }
 
+    public boolean changeQuantity(CartItem changeItem){
+        int index = 0;
+        Optional<Product> findProduct = productDb.findById(changeItem.getId());
+        Product product = findProduct.get();
+        if(product.getStock() < changeItem.getQuantity()){
+            return false;
+        } 
+        for(CartItem item : cartItems){
+            if(item.getId() == changeItem.getId()){
+                item.setQuantity(changeItem.getQuantity());
+                item.computeSubtotal();
+                computeTotal();
+                return true;
+            }
+            index++;
+        }
+        return false;
+    }
+
     public void removeItem(int id){
         int index = 0;
         for(CartItem item : cartItems){
@@ -74,21 +93,5 @@ public class ShoppingCart {
             added = true;
         }
         return added;
-    }
-
-    public void subtractItem(int id, int qty){
-        int index = 0;
-        for(CartItem item : cartItems){
-            if(item.getId() == id){
-                if(item.getQuantity() <= 1 || qty >= item.getQuantity()){
-                    cartItems.remove(index);
-                }
-                else{
-                    int newQty = item.getQuantity() - qty;
-                    item.setQuantity(newQty);
-                }                
-            }
-            index++;
-        } 
     }
 }
