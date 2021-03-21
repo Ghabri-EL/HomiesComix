@@ -14,7 +14,7 @@
         <th:block th:unless="${#arrays.isEmpty(shop_cart.cartItems)}">
             <div class="cart_items_panels" id="cart_items_panels_id">
                 <th:block th:each="item: ${shop_cart.cartItems}">
-                    <dev class="cart_item" th:id="|cart_item_${item.id}|">
+                    <div class="cart_item" th:id="|cart_item_${item.id}|">
                         <div class="cart_item_img" th:id="|item_img_${item.id}|">
                             <img th:src="@{(|/images/${item.image}|)}" th:alt="${item.title}"/>
                         </div>
@@ -28,7 +28,7 @@
                             <p class="cart_item_subtot" th:id="|item_subtot_${item.id}|" th:text="|Subtotal: &euro;${#numbers.formatDecimal(item.subtotal, 0, 'COMMA', 2, 'POINT')}|"></p>
                             <button id="item_remove_btn" th:onclick="|removeProduct(${item.id})|">Remove</button>
                         </div>
-                    </dev>
+                    </div>
                 </th:block>
             </div>
             <div id="cart_sidepanel">

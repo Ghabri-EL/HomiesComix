@@ -1,14 +1,19 @@
-<div>
-    <table>
-        <tbody th:with="user=${credentials.genUser}">
-        <tr>
-            <td>Order History for:</td>
-            <td th:text="${user.firstname}"></td>
-        </tr>
-        <tr>
-            <td>Order:</td>
-<!--            <td th:text="${user.listoforders}"></td>-->
-        </tr>
-        </tbody>
-    </table>
+<div th:with="user=${credentials.genUser}">
+    <th:block th:each="order : ${user.orders}">
+        <div>
+            <p>Order Number:</p>
+            <p th:text="${order.orderNumber}"></p>
+            <p>Order Status:</p>
+            <p th:text="${order.status}"></p>
+            <p>Address:</p>
+            <P th:text="${user.address}">Address:</P>
+            <p>Total</p>
+            <p th:text="${order.total}"></p>
+            <button onclick="viewList()">Item List</button></td>
+        </div>
+    <div id="orderedItems" style="display: none">
+        <p >test</p>
+    </div>
+    </th:block>
+
 </div>

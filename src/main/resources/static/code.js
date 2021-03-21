@@ -107,6 +107,15 @@ function returnSellView(){
     viewPort.innerHTML=sell_form;
 }
 
+function viewList(){
+    var x = document.getElementById("orderedItems");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 //========== SHOPPING CART PAGE ========
 function addToCart(id){
     var cartItem = {
