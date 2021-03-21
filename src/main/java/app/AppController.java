@@ -249,4 +249,9 @@ public class AppController {
             e.printStackTrace();
         }
     }
+
+    @GetMapping("/userOrders")
+    public String orderView(){
+        return "order_view.html";
+    }
 }
