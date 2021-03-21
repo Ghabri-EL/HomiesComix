@@ -312,7 +312,6 @@ public class AppController {
         clientOrderDb.save(order);
         user.getOrders().add(order);
         userDb.save(user);
-
         //clear the shopping cart
         shoppingCart.setCartItems();
     } 

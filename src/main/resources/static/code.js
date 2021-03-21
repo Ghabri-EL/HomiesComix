@@ -176,7 +176,6 @@ function changeCartQuantity(id){
 }
 function changeQuantityResponse(){
     var response = this.responseText;
-    alert(response);
     if(response != 0){
         document.getElementById("item_qty_" + response).value = 1;
     }
@@ -208,4 +207,16 @@ function checkoutResponse(){
 }
 function removePayOverlay(){
     document.getElementById("checkoutOverlay").remove();
+}
+
+//Functions required to edit product details
+function removeEditOverlay(){
+
+}
+function editProduct(id){
+    
+}
+
+function hideProduct(){
+    
 }
