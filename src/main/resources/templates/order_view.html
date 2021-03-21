@@ -1,6 +1,3 @@
-<!--<div>-->
-<!--    <th:block th:with="user=${credentials.genUser}"></th:block>-->
-<!--</div>-->
 <div th:with="user=${credentials.genUser}">
     <th:block th:each="order : ${user.orders}">
         <div>
@@ -20,23 +17,3 @@
     </th:block>
 
 </div>
-<!--    <table>-->
-<!--        <tbody th:with="user=${credentials.genUser}">-->
-<!--        <tr>-->
-<!--            <td>Order History for:</td>-->
-<!--            <td th:text="${user.firstname}"></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>Order Number:</td>-->
-<!--            <th:block th:each="${user.orders.orderNumber}"></th:block>-->
-<!--&lt;!&ndash;            <td th:text="${user.orders[0].orderNumber}"></td>&ndash;&gt;-->
-<!--            <td th:text="${user.orders[0].status}"></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>Items:</td>-->
-<!--            <td th:text="${#arrays.length(user.orders[0].orderItems)}"></td>-->
-<!--            &lt;!&ndash;            <td th:text="${user.orders[0].status}"></td>&ndash;&gt;-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
