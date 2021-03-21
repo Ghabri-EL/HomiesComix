@@ -435,6 +435,7 @@ h4 {
 .profileContainer{
     max-width: 80%;
     margin: auto;
+    background-color: #D4D3CE;
     /*padding: 0 100px 0 100px;*/
 }
 
