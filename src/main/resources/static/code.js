@@ -111,7 +111,6 @@ function returnSellView(){
 function addToCart(id){
     var cartItem = {
         id,
-        product: null,
         quantity : document.getElementById("quantity").value
     }
     var xhr = new XMLHttpRequest();

@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class CartItem implements Serializable{
     private int id;
-    private Product product;
-    private int quantity;
-    private double subtotal;
+    private String title;
+    private double price = 0.0;
+    private String image;
+    private int quantity = 0;
+    private double subtotal = 0.0;
 
     //to parse from json object
-    public CartItem(int id, Product product, int quantity){
+    public CartItem(int id, int quantity){
         this.id = id;
-        this.product = product;
         this.quantity = quantity;
-        computeSubtotal();
     }
 
     public CartItem(int quantity){
@@ -27,13 +27,29 @@ public class CartItem implements Serializable{
     public void setId(int id) {
         this.id = id;
     }
-    
-    public Product getProduct() {
-        return this.product;
+
+    public String getTitle() {
+        return this.title;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getQuantity() {
@@ -42,17 +58,18 @@ public class CartItem implements Serializable{
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-        computeSubtotal();
     }
 
     public double getSubtotal() {
         return this.subtotal;
     }
 
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
     public void computeSubtotal(){
-        if(product != null){
-            this.subtotal = quantity * product.getPrice();
-        }   
+        this.subtotal = this.price * this.quantity;
     }
     //discounts subtotal by percentage
     //input should be in decimal format 30% = 0.3

@@ -1,7 +1,12 @@
 package app;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -204,18 +209,18 @@ public class AppController {
 
     @PostMapping("/addToCart")
     public @ResponseBody String addToCart(@RequestBody CartItem cartItem){
+        String msg=" &diams; Failed to add product to shopping cart &diams;";
+
         Optional<Product> findProduct = productDb.findById(cartItem.getId());
         Product product = findProduct.get();
-        cartItem.setProduct(product);
+        cartItem.setPrice(product.getPrice());
+        cartItem.setTitle(product.getTitle());
+        cartItem.setImage(product.getPhoto(0));
         cartItem.computeSubtotal();
         boolean result = shoppingCart.addItem(cartItem);
-        String msg="";
-
+        
         if(result){
             msg="&diams; Product added successfully to the shopping cart &diams;";
-        }
-        else{
-            msg="&diams; Failed to add product to shopping cart &diams;";
         }
         return  msg;
     }
@@ -234,20 +239,71 @@ public class AppController {
 
     @PostMapping("/payment")
     public void paymentProcessing(HttpServletResponse response){
-        ClientOrder order = new ClientOrder();
-        for(CartItem item : shoppingCart.getCartItems()){
-            
-            Product product = item.getProduct();
-            //constructor takes quantity, price, subtotal or quantity, price, subtotal, product, order
-            //OrderItem orderItem = new OrderItem(item.getQuantity(), product.getPrice(), );
-        }
-
-
+        processOrder();
         try {
-            response.sendRedirect("/products");
+            response.sendRedirect("/profile");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void processOrder(){
+        User user = (User)sessionCred.getCredentials().getGenUser();
+
+        //create and save the order, to be added to the orderItems
+        ClientOrder order = new ClientOrder();
+        order.setAddress(user.getAddress());
+        order.setStatus("NEW ORDER");
+        order.setTotal(shoppingCart.getTotal());
+        clientOrderDb.save(order);        
+        
+        //add the order items to a list and save them all at once
+        List<OrderItem> tempListOrderItems = new ArrayList<OrderItem>();
+
+        //list of ids to get the products of based on all the ids ==>
+        List<Integer> productsId = new ArrayList<Integer>();
+        for(CartItem cItem : shoppingCart.getCartItems()){
+            productsId.add(cItem.getId());
+        }
+        List<Product> requiredProducts = productDb.findAllById(productsId);
+        
+        // ==> then populate a hash map based on id and product for quick access
+        HashMap<Integer, Product> requiredProductsMap = new HashMap<>();
+        for(Product pd : requiredProducts){
+            requiredProductsMap.put(pd.getId(), pd);
+        }
+
+        //iterate to create each order item, add item to product and save
+        for(CartItem item : shoppingCart.getCartItems()){
+            //constructor takes quantity, price, subtotal or quantity, price, subtotal, product, order
+            Product product = requiredProductsMap.get(item.getId());
+            OrderItem orderItem = new OrderItem(item.getQuantity(), product.getPrice(), item.getSubtotal(), product, order);
+            tempListOrderItems.add(orderItem);
+            product.getOrderItems().add(orderItem);
+            productDb.save(product);           
+        }     
+
+        //save the order items to db
+        orderItemDb.saveAll(tempListOrderItems);
+        //generate order number (random number + order id)
+        String orderNumber = generateOrderNumber(order.getId());
+        //set and save
+        order.setOrderNumber(orderNumber);        
+        orderItemDb.saveAll(tempListOrderItems);
+        order.setOrderItems(tempListOrderItems);
+        order.setUser(user);
+        clientOrderDb.save(order);
+        user.getOrders().add(order);
+        userDb.save(user);
+
+        //clear the shopping cart
+        shoppingCart.setCartItems();
+    } 
+
+    private String generateOrderNumber(long id){
+        Random rand = new Random();
+        int number = rand.nextInt(10000) + 1000;
+        return number + "" + id;
     }
 
     @GetMapping("/userOrders")

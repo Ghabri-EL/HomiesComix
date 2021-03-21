@@ -1,16 +1,19 @@
 package app;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User extends GeneralUser implements Serializable{    
     @Column
     private String address;
 
-    //@OneToMany
-    //private List<Order> orders;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<ClientOrder> orders;
 
     public User(){}
 
@@ -27,12 +30,11 @@ public class User extends GeneralUser implements Serializable{
         this.address = address;
     }
 
-    // public List<Order> getOrders() {
-    //     return this.orders;
-    // }
+    public List<ClientOrder> getOrders() {
+        return this.orders;
+    }
 
-    // public void setOrders(List<Order> orders) {
-    //     this.orders = orders;
-    // }
-
+    public void setOrders(List<ClientOrder> orders) {
+        this.orders = orders;
+    }
 }
