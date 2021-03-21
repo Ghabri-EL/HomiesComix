@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Products</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="code.js"></script>
-</head>
+    <head th:replace="~{home :: head}"></head>
 <body>
     <nav th:replace="home :: navbar"> </nav>
 
@@ -31,7 +26,7 @@
                         <img th:src="@{(|images/${prod_img}|)}" alt="Table" style="width:100%">
                         <h4 th:text="${product.title}"></h4>
                         </a>
-                        <p>&euro; <span th:text="${product.price}"></span></p>
+                        <p>&euro; <span th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
                         <button th:onclick="|addOneToCart(${product.id})|">Add to Cart</button>
                     </div>                    
                 </div>

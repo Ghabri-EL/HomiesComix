@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" th:href="@{/style.css}">
-    <script type="text/javascript" th:src="@{/code.js}"></script>
-    <meta charset="UTF-8">
-    <title>Details</title>
-</head>
+<head th:replace="~{home :: head}"></head>
 <body>
     <nav th:replace="home :: navbar"> </nav>
     <div class="container detailContainer">
@@ -38,7 +33,7 @@
                 
             </tr>
             <tr>
-                <th class="detailsTitle" th:text="|&euro;${product.price}|"></th>
+                <th class="detailsTitle" th:text="|&euro;${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}|"></th>
             </tr>
             <tr>
                 <td align="center">                    

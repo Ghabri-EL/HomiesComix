@@ -33,6 +33,12 @@ public class AppController {
     @Autowired
     ShoppingCart shoppingCart;
 
+    @Autowired
+    OrderItemRepository orderItemDb;
+
+    @Autowired
+    ClientOrderRepository clientOrderDb;
+
     @GetMapping("/")
     public String homePage(Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
@@ -204,7 +210,7 @@ public class AppController {
         cartItem.computeSubtotal();
         boolean result = shoppingCart.addItem(cartItem);
         String msg="";
-        
+
         if(result){
             msg="&diams; Product added successfully to the shopping cart &diams;";
         }
@@ -218,5 +224,29 @@ public class AppController {
     public @ResponseBody Integer removeProduct(@PathVariable int id){
         shoppingCart.removeItem(id);
         return id;
+    }
+
+    @GetMapping("/checkout")
+    public String checkout(Model model){
+        model.addAttribute("shop_cart", shoppingCart);
+        return "checkout.html";
+    }
+
+    @PostMapping("/payment")
+    public void paymentProcessing(HttpServletResponse response){
+        ClientOrder order = new ClientOrder();
+        for(CartItem item : shoppingCart.getCartItems()){
+            
+            Product product = item.getProduct();
+            //constructor takes quantity, price, subtotal or quantity, price, subtotal, product, order
+            //OrderItem orderItem = new OrderItem(item.getQuantity(), product.getPrice(), );
+        }
+
+
+        try {
+            response.sendRedirect("/products");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,0 +1,30 @@
+<!-- wrapped in <div id="checkoutOverlay"> </div>-->
+<div id="checkoutFormWrap">
+    <div id="payHeader">
+        <h2><span id="checkout_homie_id">Homie</span><span id="checkout_pay_id">Pay</span></h2>
+        <h3>Total: &euro; <span th:text="${#numbers.formatDecimal(shop_cart.total, 3, 'COMMA', 2, 'POINT')}"></span></h3>                
+    </div>  
+    <div id="checkoutForm">
+        <form id="pay_form" action="/payment" method="POST">
+            <table>
+                <tr>
+                    <td><label for="pay_email">Email</label></td>
+                </tr>
+                <tr>
+                    <td><input id="pay_email" type="email" name="email" require/></td>
+                </tr>
+                <tr>
+                    <td><label for="pay_password" required>Password</label></td>
+                </tr>
+                <tr>
+                    <td><input id="pay_password" type="password" name="password"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="pay_buttons">
+        <button onclick="removePayOverlay()">Cancel</button>
+        <button type="submit" form="pay_form">Pay Now</button>
+    </div>
+</div>  
+    

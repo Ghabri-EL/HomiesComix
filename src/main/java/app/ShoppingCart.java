@@ -11,6 +11,10 @@ public class ShoppingCart {
     private ArrayList<CartItem> cartItems = new ArrayList<CartItem>();
     private double total;
 
+    public void setCartItems(){
+        this.cartItems = new ArrayList<CartItem>();
+    }
+
     public ArrayList<CartItem> getCartItems() {
         return this.cartItems;
     }
@@ -20,7 +24,7 @@ public class ShoppingCart {
     }
 
     public void computeTotal() {
-        double sum = 0.0;
+        double sum = 0.00;
         for(CartItem item: cartItems){
             sum += item.getSubtotal();
         }
@@ -32,6 +36,7 @@ public class ShoppingCart {
         for(CartItem item : cartItems){
             if(item.getId() == id){
                 cartItems.remove(index);
+                computeTotal();
                 break;
             }
             index++;
@@ -47,7 +52,7 @@ public class ShoppingCart {
             if(item.getId() == toAddItem.getId()){
                 int newQty = item.getQuantity() + toAddItem.getQuantity();
                 if(!(newQty > toAddItem.getProduct().getStock())){                    
-                    item.setQuantity(newQty);
+                    item.setQuantity(newQty);                    
                     computeTotal();
                     added = true;
                 }

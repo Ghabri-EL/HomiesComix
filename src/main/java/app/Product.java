@@ -1,10 +1,11 @@
 package app;
 
 import java.io.Serializable;
-
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Product implements Serializable{
@@ -28,6 +29,9 @@ public class Product implements Serializable{
 
     @Column(length = 500)
     private String photos;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderItem> orderItems;
 
     public Product(){}
 
@@ -95,6 +99,14 @@ public class Product implements Serializable{
 
     public void setPhotos(String photos) {
         this.photos = photos;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return this.orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 
     public String getPhoto(int i){

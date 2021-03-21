@@ -136,7 +136,7 @@ function displayMessage(msg){
     msgDiv.style.cssText = divStyle;
     msgDiv.innerHTML="<p>" + msg + "</p>"
     document.body.appendChild(msgDiv);
-    setTimeout(function (){document.getElementById("add_to_cart_msg").remove();}, 2000);
+    setTimeout(function (){document.getElementById("add_to_cart_msg").remove();}, 3000);
 }
 
 function removeProduct(id){
@@ -148,16 +148,34 @@ function removeProduct(id){
 function removeProductResponse(){
     var response = this.responseText;
     var divId = "cart_item_" + response;
-    //alert(divId);
     document.getElementById(divId).remove();
-    //if all the items have been removed from the cart, refresh the page
-    var itemsDisplayed = document.getElementById("cart_items_panels_id").childElementCount;
-    if(itemsDisplayed === 0){
-        location.reload();
-    }
+    //reload to show the new total and display empty cart message if all items are removed
+    location.reload();
 }
 
 function checkoutAlert(){
     var msg = "&diams; Please log in to checkout. Thank you &diams;";
     displayMessage(msg);
+}
+
+function checkoutAlertAdmin(){
+    var msg = "&diams; Cannot checkout as an admin. Please use a curstomer account &diams;";
+    displayMessage(msg);
+}
+
+function checkout(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = checkoutResponse;
+    xhr.open("GET", "/checkout")
+    xhr.send();
+}
+function checkoutResponse(){
+    var response = this.responseText;
+    var overlayDiv = document.createElement("div");
+    overlayDiv.id = "checkoutOverlay";
+    overlayDiv.innerHTML= response;
+    document.body.appendChild(overlayDiv);
+}
+function removePayOverlay(){
+    document.getElementById("checkoutOverlay").remove();
 }
