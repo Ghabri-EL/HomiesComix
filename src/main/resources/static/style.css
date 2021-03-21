@@ -377,6 +377,8 @@ img {
 
 .rowProducts {
     margin: 10px -16px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /*padding between column */
@@ -387,26 +389,58 @@ img {
 
 /* create 3 columns */
 .column {
-    float: left;
-    width: 33.33%;
+    width: 33%;
+    max-width: 400px;
+    min-width: 250px;
+    flex: 1 1 33%;
     display: none; /* Hide all elements by default */
-}
-
-/* Clear floats after rows */
-.rowProducts:after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 /* Content */
 .content {
     background-color: white;
     padding: 10px;
+    height: 500px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    border-radius: 3px;
+    box-shadow: #d8d8d8f8 1px 1px 7px;    
+}
+.content a{
+    width: 100%;
+    text-decoration: none;
+}
+
+.content p{
+    align-self: flex-end;
+    padding: 2% 5%;
+    font-size: 150%;
+    font-weight: 600;
+}
+.content button{
+    padding: 7px 10px;
+    cursor: pointer;
+    font-family: 'Abhaya Libre';
+    text-align: center;
+    background-color: #0F3C5C;
+    color: white;
+    transition: linear .15s;
+    border: rgb(49, 49, 49) solid 2px;
+    border-radius: 4px;
+}
+
+.content button:hover{
+    box-shadow: #023246 1px 1px 7px;    
+    border: rgb(49, 49, 49) solid 2px;
 }
 
 h4 {
-    padding: 5px 0 5px 0;
+    padding: 5px 0 5px;
+    font-family: 'Abhaya Libre';
+    font-size: 150%;
+    color: #023246;
+    text-align: center;
 }
 
 /*show class added to filtered elements */
