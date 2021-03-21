@@ -2,12 +2,12 @@ INSERT INTO admin (firstname, surname, email, `password`) VALUES ('admin', 'admi
 /*The password is: password*/
 
 /* Products */
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1881,'title', 'chair', 555, 300,'description', 'chair1_p1.jpg#chair1_p2.jpg#chair1_p3.jpg#chair1_p4.jpg#chair1_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1882,'title', 'chair', 15, 300,'description', 'chair2_p1.jpg#chair2_p2.jpg#chair2_p3.jpg#chair2_p4.jpg#chair2_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1883,'title', 'chair', 5, 300,'description', 'chair3_p1.jpg#chair3_p2.jpg#chair3_p3.jpg#chair3_p4.jpg#chair3_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1884,'title', 'couch', 5, 300,'description', 'sofa1_p1.jpg#sofa1_p2.jpg#sofa1_p3.jpg#sofa1_p4.jpg#sofa1_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1885,'title', 'couch', 5, 300,'description', 'sofa2_p1.jpg#sofa2_p2.jpg#sofa2_p3.jpg#sofa2_p4.jpg#sofa2_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1886,'title', 'couch', 5, 300,'description', 'sofa3_p1.jpg#sofa3_p2.jpg#sofa3_p3.jpg#sofa3_p4.jpg#sofa3_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1887,'title', 'table', 5, 300,'description', 'table1_p1.jpg#table1_p2.jpg#table1_p3.jpg#table1_p4.jpg#table1_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1888,'title', 'table', 5, 300,'description', 'table2_p1.jpg#table2_p2.jpg#table2_p3.jpg#table2_p4.jpg#table2_p5.jpg');
-INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1889,'title', 'table', 5, 300,'description', 'table3_p1.jpg#table3_p2.jpg#table3_p3.jpg#table3_p4.jpg#table3_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1881,'Arm Chair', 'chair', 555, 80,'description', 'chair1_p1.jpg#chair1_p2.jpg#chair1_p3.jpg#chair1_p4.jpg#chair1_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1882,'Desk Chair', 'chair', 15, 35,'description', 'chair2_p1.jpg#chair2_p2.jpg#chair2_p3.jpg#chair2_p4.jpg#chair2_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1883,'Chair', 'chair', 5, 25,'description', 'chair3_p1.jpg#chair3_p2.jpg#chair3_p3.jpg#chair3_p4.jpg#chair3_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1884,'Corner Couch', 'couch', 5, 450,'description', 'sofa1_p1.jpg#sofa1_p2.jpg#sofa1_p3.jpg#sofa1_p4.jpg#sofa1_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1885,'Leather Couch', 'couch', 5, 800,'description', 'sofa2_p1.jpg#sofa2_p2.jpg#sofa2_p3.jpg#sofa2_p4.jpg#sofa2_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1886,'Bed Sofa', 'couch', 5, 350,'description', 'sofa3_p1.jpg#sofa3_p2.jpg#sofa3_p3.jpg#sofa3_p4.jpg#sofa3_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1887,'Small Dinning Table', 'table', 5, 50,'description', 'table1_p1.jpg#table1_p2.jpg#table1_p3.jpg#table1_p4.jpg#table1_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1888,'Working Desk', 'table', 5, 100,'description', 'table2_p1.jpg#table2_p2.jpg#table2_p3.jpg#table2_p4.jpg#table2_p5.jpg');
+INSERT INTO product (id, title, category, stock, price, description, photos) VALUES (1889,'Coffee Table', 'table', 5, 80,'description', 'table3_p1.jpg#table3_p2.jpg#table3_p3.jpg#table3_p4.jpg#table3_p5.jpg');
