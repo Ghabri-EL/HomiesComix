@@ -2,11 +2,11 @@
     <div class="orders" th:each="order : ${orders}">
         <div class="order_details">
             <p>Number: <span th:text="${order.orderNumber}"></span></p>
-            <select id="change_order_state" th:onchange="|changeOrderStatus(${order.id})|">
-                <option value="NEW">NEW</option>
-                <option value="SHIPPED">SHIPPED</option>
-                <option value="CANCELED">CANCELED</option>
-                <option value="DELIVERED">DELIVERED</option>
+            <select th:id="|change_order_status_${order.id}|" th:onchange="|changeOrderStatus(${order.id})|">
+                <option value="NEW" th:selected="${order.status == 'NEW'}">NEW</option>
+                <option value="SHIPPED" th:selected="${order.status == 'SHIPPED'}">SHIPPED</option>
+                <option value="CANCELED" th:selected="${order.status == 'CANCELED'}">CANCELED</option>
+                <option value="DELIVERED" th:selected="${order.status == 'DELIVERED'}">DELIVERED</option>
             </select>
             <P>Address: <span th:text="${order.address}"></span></P>
             <p>Total: <span th:text="|&euro;${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}|"></span></p>

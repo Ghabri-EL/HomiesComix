@@ -96,7 +96,7 @@ function addOrderView(){
 }
 
 function changeOrderStatus(id){
-    var status = document.getElementById("change_order_state").value;
+    var status = document.getElementById("change_order_status_"+id).value;
     var xhr = new XMLHttpRequest();
     xhr.onload = changeOrderStatusResponse;
     xhr.open("GET", "/change_order_status/"+id+"/"+status);
@@ -221,7 +221,7 @@ function checkout(){
 }
 function checkoutResponse(){
     var response = this.responseText;
-    var overlayDiv = document.createElement("div");
+    let overlayDiv = document.createElement("div");
     overlayDiv.id = "checkoutOverlay";
     overlayDiv.innerHTML= response;
     document.body.appendChild(overlayDiv);
@@ -230,14 +230,54 @@ function removePayOverlay(){
     document.getElementById("checkoutOverlay").remove();
 }
 
-//Functions required to edit product details
-function removeEditOverlay(){
-
-}
+//======== Functions to edit product details ===========
 function editProduct(id){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = editProductResponse;
+    xhr.open("GET", "/editProduct/"+id)
+    xhr.send();
+}
+function editProductResponse(){
+    var response = this.responseText;
+    let overlayDiv = document.createElement("div");
+    overlayDiv.id = "edit_product_overlay";
+    overlayDiv.innerHTML= response;
+    document.body.appendChild(overlayDiv);
+}
+function removeEditOverlay(){
+    document.getElementById("edit_product_overlay").remove();
+}
+function confirmProductChanges(id){
+    var product = {
+        id,
+        stock : document.getElementById("edit_prod_stock").value,
+        price : document.getElementById("edit_product_price").value,
+        description : document.getElementById("edit_prod_description").value
+    }
     
+    var xhr = new XMLHttpRequest();
+    xhr.onload = confirmProductChangesResponse;
+    xhr.open("POST", "/confirm_product_changes");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(product));
 }
 
-function hideProduct(){
+function confirmProductChangesResponse(){
+    var response = this.responseText;
+    removeEditOverlay();
+    location.reload();
+    displayMessage(response);
+}
 
+function hideProduct(id){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = hideProductResponse;
+    xhr.open("GET", "/hideProduct/"+id)
+    xhr.send();
+}
+
+function hideProductResponse(){
+    var response = this.responseText;
+    removeEditOverlay();
+    displayMessage(response);
 }

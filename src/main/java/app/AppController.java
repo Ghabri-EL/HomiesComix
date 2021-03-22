@@ -139,8 +139,16 @@ public class AppController {
     
     @GetMapping("/products")
     public String products(Model model){
+        Credentials creds = sessionCred.getCredentials();
         model.addAttribute("credentials", sessionCred.getCredentials());
-        model.addAttribute("products", productDb.findOnlyInStock());
+        //admins can see all products while customers only see the products in stock
+        if(creds != null){
+            if(creds.isAdmin()){
+                model.addAttribute("products", productDb.findAll());     
+                return "products.html";
+            }
+        }
+        model.addAttribute("products", productDb.findOnlyInStock()); 
         return "products.html";
     }
 
@@ -197,6 +205,36 @@ public class AppController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @GetMapping("/editProduct/{id}")
+    public String editProduct(@PathVariable int id, Model model){
+        Optional<Product> findProduct = productDb.findById(id);   
+        Product product = findProduct.get();
+        model.addAttribute("product", product);
+        return "edit_product.html";
+    }
+
+    @PostMapping("/confirm_product_changes")
+    public @ResponseBody String completeProductChanged(@RequestBody Product product){
+        Optional<Product> findProduct = productDb.findById(product.getId());
+        Product productToEdit = findProduct.get();
+        productToEdit.setStock(product.getStock());
+        productToEdit.setPrice(product.getPrice());
+        productToEdit.setDescription(product.getDescription());
+        productDb.save(productToEdit);
+        return "&diams; Product changes applied &diams;";
+    }
+
+    @GetMapping("/hideProduct/{id}")
+    public @ResponseBody String hideProduct(@PathVariable int id){
+        Optional<Product> findProduct = productDb.findById(id);
+        Product product = findProduct.get();
+        
+        //products that have stock 0 are not displayed, hence set stock to 0 to hide
+        product.setStock(0);
+        productDb.save(product);
+        return "&diams; Product changes applied &diams;";
     }
 
     @GetMapping("/sell_form")
@@ -327,6 +365,7 @@ public class AppController {
         model.addAttribute("credentials", sessionCred.getCredentials());
 
         if(sessionCred.getCredentials() != null){
+            System.out.println("EMAIL:::::: " + sessionCred.getCredentials().getGenUser().getEmail());
             if(sessionCred.getCredentials().isAdmin()){
                 model.addAttribute("orders", clientOrderDb.findAll());
                 return "order_view_admin.html";
@@ -339,11 +378,10 @@ public class AppController {
     public @ResponseBody String changeOrderStatus(@PathVariable long id, @PathVariable String status){
         Optional<ClientOrder> findOrder = clientOrderDb.findById(id);
 
-        if(findOrder.isPresent()){
+        if(findOrder.isPresent()){            
             ClientOrder order = findOrder.get();
             order.setStatus(status);
             clientOrderDb.save(order);
-            System.out.println(order.getStatus());
             return "&diams; Order status changed successfully &diams;";
         }
         else{

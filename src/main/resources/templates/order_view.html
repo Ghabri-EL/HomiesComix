@@ -1,30 +1,36 @@
-<div th:with="user=${credentials.genUser}">
-    <th:block th:each="order : ${user.orders}">
-        <div class="orders">
-            <div class="order_details">
-                <p>Number: <span th:text="${order.orderNumber}"></span></p>
-                <p>Status: <span th:text="${order.status}"></span></p>
-                <P>Address: <span th:text="${order.address}"></span></P>
-                <p>Total: <span th:text="|&euro;${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}|"></span></p>
-                <button id="view_order_items_btn" th:onclick="|viewOrderItems(${order.id})|">Items</button>
-            </div>
-
-            <div class="orderItemsWrapper" th:id="|orderItems_${order.id}|" style="display: none;">
-                <th:block th:each="item: ${order.orderItems}">
-                    <div class="order_item" th:id="|cart_item_${item.id}|">
-                        <div class="order_item_img" th:id="|item_img_${item.id}|">
-                            <img th:src="@{(|/images/${#strings.arraySplit(item.product.photos, '#')[0]}|)}" th:alt="${item.product.title}"/>
-                        </div>
-                        <div class="order_item_details">
-                            <p class="order_item_title" th:text="${item.product.title}"></p>
-                            <p class="order_item_price" th:text="|Price: &euro;${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}|"></p>
-                            <p class="order_item_qty"  th:text="|Qty: ${item.quantity}|"></p>
-                            <p class="order_item_subtot" th:id="|item_subtot_${item.id}|" th:text="|Subtotal: &euro;${#numbers.formatDecimal(item.subtotal, 0, 'COMMA', 2, 'POINT')}|"></p>
-                            <a id="order_item_btn" th:href="@{/details/{id}(id=${item.product.id})}">View</a>
-                        </div>
-                    </div>
-                </th:block>
-            </div>
-        </div>
+<div th:id="${credentials}" th:with="user=${credentials.genUser}">
+    <th:block th:if="${#arrays.isEmpty(user.orders)}">
+        <div><p>You have not placed any orders.</p></div>
     </th:block>
+
+    <th:block th:unless="${#arrays.isEmpty(user.orders)}">
+        <th:block th:each="order : ${user.orders}">
+            <div class="orders">
+                <div class="order_details">
+                    <p>Number: <span th:text="${order.orderNumber}"></span></p>
+                    <p>Status: <span th:text="${order.status}"></span></p>
+                    <P>Address: <span th:text="${order.address}"></span></P>
+                    <p>Total: <span th:text="|&euro;${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}|"></span></p>
+                    <button id="view_order_items_btn" th:onclick="|viewOrderItems(${order.id})|">Items</button>
+                </div>
+
+                <div class="orderItemsWrapper" th:id="|orderItems_${order.id}|" style="display: none;">
+                    <th:block th:each="item: ${order.orderItems}">
+                        <div class="order_item" th:id="|cart_item_${item.id}|">
+                            <div class="order_item_img" th:id="|item_img_${item.id}|">
+                                <img th:src="@{(|/images/${#strings.arraySplit(item.product.photos, '#')[0]}|)}" th:alt="${item.product.title}"/>
+                            </div>
+                            <div class="order_item_details">
+                                <p class="order_item_title" th:text="${item.product.title}"></p>
+                                <p class="order_item_price" th:text="|Price: &euro;${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}|"></p>
+                                <p class="order_item_qty"  th:text="|Qty: ${item.quantity}|"></p>
+                                <p class="order_item_subtot" th:id="|item_subtot_${item.id}|" th:text="|Subtotal: &euro;${#numbers.formatDecimal(item.subtotal, 0, 'COMMA', 2, 'POINT')}|"></p>
+                                <a id="order_item_btn" th:href="@{/details/{id}(id=${item.product.id})}">View</a>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </th:block>
+    </th:block>    
 </div>

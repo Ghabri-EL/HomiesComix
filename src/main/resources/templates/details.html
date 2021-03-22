@@ -5,6 +5,12 @@
     <nav th:replace="home :: navbar"> </nav>
     <div class="container detailContainer">
 
+        <th:block th:if="${credentials}">
+            <div th:if="${credentials.admin}" id="editProductButtonWrap">
+                <button class="buttonDesignShadow" th:onclick="|editProduct(${product.id})|">Edit Product</button>
+            </div>
+        </th:block>
+
         <div class="productsContainer">
             <div class="arrowArea">
                 <div class="mySlides" th:each="image, indx :${#strings.arraySplit(product.photos, '#')}">
@@ -42,7 +48,7 @@
                 </td>
             </tr>
             <tr>
-                <td><button th:onclick="|addToCart(${product.id})|">Add to Cart</button></td>
+                <td><button class="buttonDesignShadow" th:onclick="|addToCart(${product.id})|">Add to Cart</button></td>
             </tr>
         </table>
 

@@ -1,22 +1,21 @@
-<div id="edit_product_overlay">
-    <div id="edit_product_inner_container">
-        <h3>Product: <span th:text="${product.title}"></span></h3>
-        <div>
-            <p>Price</p>
-            <input id="edit_product_price" type="number" placeholder="0.99" min="0" step="0.01" th:value="${product.price}" required/>
-        </div>
-        <div>
-            <p>Stock</p>
-            <input id="edit_prod_stock" type="number" min="0" th:value="${product.stock}" required/> 
-        </div>
-        <div>
-            <p>Description</p>
-            <textarea id="edit_prod_description" type="text" style="resize: none;" th:field="${product.description}"></textarea>
-        </div>
-        <div id="edit_buttons">
-            <button onclick="removeEditOverlay()">Cancel</button>
-            <button th:onclick="|editProduct(${product.id})|" >Edit</button>
-            <button th:onclick="|hideProduct(${product.id})|" >Hide</button>
-        </div>
+<!-- wrapped in <div id="edit_product_overlay"> -->
+<div id="edit_product_inner_container">
+    <h3>Product: <span th:text="${product.title}"></span></h3>
+    <div>
+        <p>Price</p>
+        <input id="edit_product_price" type="number" placeholder="0.99" min="0" step="0.01" th:value="${product.price}" required/>
+    </div>
+    <div>
+        <p>Stock</p>
+        <input id="edit_prod_stock" type="number" min="0" th:value="${product.stock}" required/> 
+    </div>
+    <div>
+        <p>Description</p>
+        <textarea id="edit_prod_description" type="text" style="resize: none;" th:field="${product.description}"></textarea>
+    </div>
+    <div id="edit_buttons">
+        <button class="buttonDesignShadow" onclick="removeEditOverlay()">Cancel</button>
+        <button class="buttonDesignShadow" th:onclick="|confirmProductChanges(${product.id})|" >Edit</button>
+        <button class="buttonDesignShadow" th:onclick="|hideProduct(${product.id})|">Hide</button>
     </div>
 </div>
