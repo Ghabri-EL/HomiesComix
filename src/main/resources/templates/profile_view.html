@@ -1,47 +1,32 @@
 <html>
 <body style="background-color: #D4D3CE">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
     <div class="container profileContainer" th:fragment="guest_view">
-        <h3 class="profile_msg">Please log in to acess your profile or sign up</h3>        
+        <a href="/login_signup" id="profile_msg">&diams; Please log in to acess your profile or sign up &diams;</a>
     </div>
 
     <div class="container profileContainer" th:fragment="user_view">
         <h2 class="profileTitle">Profile</h2>        
         <div class="profileButtons">
-            <table>
-                <tr>
-                    <td><button onclick="viewUser()">User Details</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="viewOrders()">Orders History</button></td>
-                </tr>
-                <tr>
-                    <td><button>Features..</button></td>
-                </tr>
-            </table>
+            <button onclick="viewUser()">User Details</button>
+            <button onclick="viewOrders()">Orders History</button>
+            <button>Features..</button>
         </div>
         <div id="profile_view">
-            <p>Hello: <span th:text="${credentials.genUser.firstname}"></span></p>
+            <p id="profile_msg">Hello &diams; <span th:text="${credentials.genUser.firstname}"></span></p>
         </div>
     </div>
 
     <div class="container profileContainer" th:fragment="admin_view">
         <h2 class="profileTitle">Profile</h2>        
         <div class="profileButtons">
-            <table>
-                <tr>
-                    <td><button onclick="viewUser()">User Details</button></td>
-                </tr>
-                <tr>
-                    <td><button  onclick="viewOrders()">Orders</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="viewSellForm()">Sell Product</button></td>
-                </tr>
-            </table>
+            <button onclick="viewUser()">User Details</button>
+            <button onclick="viewOrders()">Orders History</button>
+            <button onclick="viewSellForm()">Sell Product</button>            
         </div>
         <div id="profile_view">
-            <p>Hello: <span th:text="${credentials.genUser.firstname}"></span></p>
+            <p id="profile_msg">Hello &diams; <span th:text="${credentials.genUser.firstname}"></span></p>
         </div>
     </div>
 </body>

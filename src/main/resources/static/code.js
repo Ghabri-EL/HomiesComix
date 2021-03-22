@@ -58,15 +58,30 @@ function remove(element, name) {
 
 
 // Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("tabButton");
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function(){
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-    });
+function setActiveButton(){
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("tabButton");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
 }
+
+function gallerySetHeightBasedOnWidth(){
+    var container = document.getElementById("gallery_large_image");
+    var elements = container.getElementsByClassName("mySlides");
+    console.log(elements.length);
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener("load", function(){
+            var width = document.elements[i].offsetWidth;
+            console.log(width);
+        });
+    }
+}
+
 //======== PROFILE PAGE ========
 
 function viewUser(){

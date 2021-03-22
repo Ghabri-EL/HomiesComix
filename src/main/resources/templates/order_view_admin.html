@@ -1,33 +1,39 @@
 <div>
-    <div class="orders" th:each="order : ${orders}">
-        <div class="order_details">
-            <p>Number: <span th:text="${order.orderNumber}"></span></p>
-            <select th:id="|change_order_status_${order.id}|" th:onchange="|changeOrderStatus(${order.id})|">
-                <option value="NEW" th:selected="${order.status == 'NEW'}">NEW</option>
-                <option value="SHIPPED" th:selected="${order.status == 'SHIPPED'}">SHIPPED</option>
-                <option value="CANCELED" th:selected="${order.status == 'CANCELED'}">CANCELED</option>
-                <option value="DELIVERED" th:selected="${order.status == 'DELIVERED'}">DELIVERED</option>
-            </select>
-            <P>Address: <span th:text="${order.address}"></span></P>
-            <p>Total: <span th:text="|&euro;${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}|"></span></p>
-            <button id="view_order_items_btn" th:onclick="|viewOrderItems(${order.id})|">Items</button>
-        </div>
+    <th:block th:if="${#arrays.isEmpty(orders)}">
+        <div id="profile_msg"><p>No orders have been placed</p></div>
+    </th:block>
 
-        <div class="orderItemsWrapper" th:id="|orderItems_${order.id}|" style="display: none;">
-            <th:block th:each="item: ${order.orderItems}">
-                <div class="order_item" th:id="|cart_item_${item.id}|">
-                    <div class="order_item_img" th:id="|item_img_${item.id}|">
-                        <img th:src="@{(|/images/${#strings.arraySplit(item.product.photos, '#')[0]}|)}" th:alt="${item.product.title}"/>
+    <th:block th:unless="${#arrays.isEmpty(orders)}">
+        <div class="orders" th:each="order : ${orders}">
+            <div class="order_details">
+                <p>Number: <span th:text="${order.orderNumber}"></span></p>
+                <select th:id="|change_order_status_${order.id}|" th:onchange="|changeOrderStatus(${order.id})|">
+                    <option value="NEW" th:selected="${order.status == 'NEW'}">NEW</option>
+                    <option value="SHIPPED" th:selected="${order.status == 'SHIPPED'}">SHIPPED</option>
+                    <option value="CANCELED" th:selected="${order.status == 'CANCELED'}">CANCELED</option>
+                    <option value="DELIVERED" th:selected="${order.status == 'DELIVERED'}">DELIVERED</option>
+                </select>
+                <P>Address: <span th:text="${order.address}"></span></P>
+                <p>Total: <span th:text="|&euro;${#numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}|"></span></p>
+                <button id="view_order_items_btn" th:onclick="|viewOrderItems(${order.id})|">Items</button>
+            </div>
+    
+            <div class="orderItemsWrapper" th:id="|orderItems_${order.id}|" style="display: none;">
+                <th:block th:each="item: ${order.orderItems}">
+                    <div class="order_item" th:id="|cart_item_${item.id}|">
+                        <div class="order_item_img" th:id="|item_img_${item.id}|">
+                            <img th:src="@{(|/images/${#strings.arraySplit(item.product.photos, '#')[0]}|)}" th:alt="${item.product.title}"/>
+                        </div>
+                        <div class="order_item_details">
+                            <p class="order_item_title" th:text="${item.product.title}"></p>
+                            <p class="order_item_price" th:text="|Price: &euro;${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}|"></p>
+                            <p class="order_item_qty"  th:text="|Qty: ${item.quantity}|"></p>
+                            <p class="order_item_subtot" th:id="|item_subtot_${item.id}|" th:text="|Subtotal: &euro;${#numbers.formatDecimal(item.subtotal, 0, 'COMMA', 2, 'POINT')}|"></p>
+                            <a id="order_item_btn" th:href="@{/details/{id}(id=${item.product.id})}">View</a>
+                        </div>
                     </div>
-                    <div class="order_item_details">
-                        <p class="order_item_title" th:text="${item.product.title}"></p>
-                        <p class="order_item_price" th:text="|Price: &euro;${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}|"></p>
-                        <p class="order_item_qty"  th:text="|Qty: ${item.quantity}|"></p>
-                        <p class="order_item_subtot" th:id="|item_subtot_${item.id}|" th:text="|Subtotal: &euro;${#numbers.formatDecimal(item.subtotal, 0, 'COMMA', 2, 'POINT')}|"></p>
-                        <a id="order_item_btn" th:href="@{/details/{id}(id=${item.product.id})}">View</a>
-                    </div>
-                </div>
-            </th:block>
+                </th:block>
+            </div>
         </div>
-    </div>
+    </th:block>
 </div>

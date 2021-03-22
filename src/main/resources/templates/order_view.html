@@ -1,6 +1,6 @@
 <div th:id="${credentials}" th:with="user=${credentials.genUser}">
     <th:block th:if="${#arrays.isEmpty(user.orders)}">
-        <div><p>You have not placed any orders.</p></div>
+        <div id="profile_msg"><p>You have not placed any orders.</p></div>
     </th:block>
 
     <th:block th:unless="${#arrays.isEmpty(user.orders)}">

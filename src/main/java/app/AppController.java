@@ -365,7 +365,6 @@ public class AppController {
         model.addAttribute("credentials", sessionCred.getCredentials());
 
         if(sessionCred.getCredentials() != null){
-            System.out.println("EMAIL:::::: " + sessionCred.getCredentials().getGenUser().getEmail());
             if(sessionCred.getCredentials().isAdmin()){
                 model.addAttribute("orders", clientOrderDb.findAll());
                 return "order_view_admin.html";
