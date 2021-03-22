@@ -270,7 +270,7 @@ public class AppController {
         //create and save the order, to be added to the orderItems
         ClientOrder order = new ClientOrder();
         order.setAddress(user.getAddress());
-        order.setStatus("NEW ORDER");
+        order.setStatus("NEW");
         order.setTotal(shoppingCart.getTotal());
         clientOrderDb.save(order);        
         
@@ -322,9 +322,32 @@ public class AppController {
         return number + "" + id;
     }
 
-    @GetMapping("/userOrders")
+    @GetMapping("/viewOrders")
     public String orderView(Model model){
         model.addAttribute("credentials", sessionCred.getCredentials());
+
+        if(sessionCred.getCredentials() != null){
+            if(sessionCred.getCredentials().isAdmin()){
+                model.addAttribute("orders", clientOrderDb.findAll());
+                return "order_view_admin.html";
+            }
+        }
         return "order_view.html";
+    }
+
+    @GetMapping("/change_order_status/{id}/{status}")
+    public @ResponseBody String changeOrderStatus(@PathVariable long id, @PathVariable String status){
+        Optional<ClientOrder> findOrder = clientOrderDb.findById(id);
+
+        if(findOrder.isPresent()){
+            ClientOrder order = findOrder.get();
+            order.setStatus(status);
+            clientOrderDb.save(order);
+            System.out.println(order.getStatus());
+            return "&diams; Order status changed successfully &diams;";
+        }
+        else{
+            return "&diams; Order status did not change &diams;";
+        }            
     }
 }

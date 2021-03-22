@@ -539,6 +539,7 @@ h4 {
     color: white;
 }
 
+/* ========== PROFILE PAGE STYLE ==========*/
 .profileContainer{
     max-width: 80%;
     margin: auto;
@@ -577,7 +578,7 @@ h4 {
     float: left;
     margin-top: 15px;    
     padding: 5px;
-    border: #023246 solid 2px;
+    border: #216e8f solid 2px;
 }
 /* Add a background color on hover */
 .profileButtons button:hover {
@@ -585,6 +586,113 @@ h4 {
     border-right: 3px solid white;
 }
 
+/*========> Orders View Style */
+.orders{
+    margin-bottom: 10px;
+}
+
+.order_details{
+    min-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-end;
+    color: white;
+    background-color: #023246;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.order_details p{
+    padding: 5px 10px;
+}
+
+#view_order_items_btn{
+    width: 100%;
+    flex: 1 1 100%;
+    background-color: #023246;
+    cursor: pointer;
+    height: 20px;
+    color: white;
+    border-radius: 5px;
+    border-top: rgba(212, 212, 212, 0.185) 1px solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: linear .2s;
+}
+
+#view_order_items_btn:hover{
+    background-color: white;
+    color: #023246;
+    border: #023246 1px solid;
+}
+
+.orderItemsWrapper{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+}
+
+.order_item{
+    box-shadow: rgb(240, 240, 240) 1px 1px 2px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    display: flex;
+    width: 95%;
+    border: #023246 1px solid;
+}
+
+.order_item_img{
+    max-width: 7%;
+    min-width: 50px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.order_item_img img{
+    width: 100%;
+}
+
+.order_item_details{
+    display: flex;
+    width: 95%;
+    padding: 10px 10px 10px 20px;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.order_item_title{
+    flex-basis: 100%;
+    width: 100%;
+    font-weight: 600;
+}
+
+#order_item_btn{
+    padding: 4px;
+    cursor: pointer;
+    font-family: 'Abhaya Libre';
+    text-align: center;
+    background-color: #023246;
+    border: white solid 2px;
+    border-radius: 2px;
+    color: white;
+    transition: linear .2s;
+    text-decoration: none;
+}
+#order_item_btn:hover{
+    background-color:white;
+    border: #222 solid 2px;
+    color:#023246;
+}
+
+#change_order_state{
+    text-align: center;
+    border-radius: 3px;
+    background-color: rgb(2, 10, 34);
+    color: white;
+}
 /* ========== FOOTER STYLE ========== */
 #footer{
     background-color: #023246;

@@ -82,10 +82,10 @@ function addView(){
     viewPort.innerHTML=user_details;
 }
 
-function viewOrder(){
+function viewOrders(){
     var xhr = new XMLHttpRequest();
     xhr.onload = addOrderView;
-    xhr.open("GET", "/userOrders");
+    xhr.open("GET", "/viewOrders");
     xhr.send();
 }
 
@@ -95,6 +95,18 @@ function addOrderView(){
     viewPort.innerHTML=order_view;
 }
 
+function changeOrderStatus(id){
+    var status = document.getElementById("change_order_state").value;
+    var xhr = new XMLHttpRequest();
+    xhr.onload = changeOrderStatusResponse;
+    xhr.open("GET", "/change_order_status/"+id+"/"+status);
+    xhr.send();
+}
+
+function changeOrderStatusResponse(){
+    var response = this.responseText;
+    displayMessage(response);
+}
 function viewSellForm(){
     var xhr = new XMLHttpRequest();
     xhr.onload = returnSellView;
@@ -107,10 +119,10 @@ function returnSellView(){
     viewPort.innerHTML=sell_form;
 }
 
-function viewList(){
-    var x = document.getElementById("orderedItems");
+function viewOrderItems(id){
+    var x = document.getElementById("orderItems_"+id);
     if (x.style.display === "none") {
-        x.style.display = "block";
+        x.style.display = "flex";
     } else {
         x.style.display = "none";
     }
@@ -227,5 +239,5 @@ function editProduct(id){
 }
 
 function hideProduct(){
-    
+
 }
