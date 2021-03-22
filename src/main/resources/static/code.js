@@ -70,18 +70,6 @@ function setActiveButton(){
     }
 }
 
-function gallerySetHeightBasedOnWidth(){
-    var container = document.getElementById("gallery_large_image");
-    var elements = container.getElementsByClassName("mySlides");
-    console.log(elements.length);
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].addEventListener("load", function(){
-            var width = document.elements[i].offsetWidth;
-            console.log(width);
-        });
-    }
-}
-
 //======== PROFILE PAGE ========
 
 function viewUser(){

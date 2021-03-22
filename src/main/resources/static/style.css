@@ -659,7 +659,7 @@ h4 {
     min-width: 300px;
 }
 
-#upload_product input, select{
+#upload_product input, #upload_product select{
     width: 100%;
     height: 35px;
     background-color: rgba(0, 48, 48, 0.185);
