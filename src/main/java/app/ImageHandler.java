@@ -9,11 +9,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class ImageHandler {
-    private static final String IMAGE_FOLDER_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images";
+    //private static final String IMAGE_FOLDER_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images";
+    private static final String IMAGE_FOLDER_PATH = System.getProperty("user.dir") + "\\images";
 
     //it'll take the array of images uploaded and change the name of each image to [id]_p[image number].jpg => 6969_p1.jpg
     //it returns a string of all of the names of the saved images separated by '#' character
     public String saveImages(int id, MultipartFile[] images){
+        System.out.println("PATH:" + IMAGE_FOLDER_PATH);
         StringBuilder buildNameString = new StringBuilder();
 
         for(int i = 0; i < images.length; i++){
