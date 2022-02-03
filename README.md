@@ -1,4 +1,4 @@
-# StayAtHomies
+# OnlineStore 
 
 You can browse the website by clicking any of the navagation buttons up top.
 
