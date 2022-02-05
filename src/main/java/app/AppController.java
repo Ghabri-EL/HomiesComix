@@ -223,7 +223,7 @@ public class AppController {
         productToEdit.setPrice(product.getPrice());
         productToEdit.setDescription(product.getDescription());
         productDb.save(productToEdit);
-        return "&diams; Product changes applied &diams;";
+        return "Product changes applied";
     }
 
     @GetMapping("/hideProduct/{id}")
@@ -234,7 +234,7 @@ public class AppController {
         //products that have stock 0 are not displayed, hence set stock to 0 to hide
         product.setStock(0);
         productDb.save(product);
-        return "&diams; Product changes applied &diams;";
+        return "Product changes applied";
     }
 
     @GetMapping("/sell_form")
@@ -251,7 +251,7 @@ public class AppController {
 
     @PostMapping("/addToCart")
     public @ResponseBody String addToCart(@RequestBody CartItem cartItem){
-        String msg=" &diams; Failed to add product to shopping cart &diams;";
+        String msg="Failed to add product to shopping cart";
 
         Optional<Product> findProduct = productDb.findById(cartItem.getId());
         Product product = findProduct.get();
@@ -262,7 +262,7 @@ public class AppController {
         boolean result = shoppingCart.addItem(cartItem);
 
         if(result){
-            msg="&diams; Product added successfully to the shopping cart &diams;";
+            msg="Product added successfully to the shopping cart";
         }
         return  msg;
     }

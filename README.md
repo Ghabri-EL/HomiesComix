@@ -1,4 +1,11 @@
-# OnlineStore 
+# StayAtHomies
+Instructions: 
+    - Java 13+ required to execute the jar file
+    - Maven required to rebuild the project
+
+Description:
+
+Online store project developped using maven, spring boot and (jpa + h2) as database.
 
 You can browse the website by clicking any of the navagation buttons up top.
 
@@ -17,3 +24,8 @@ Then you are able to login using that same email and password.
 The profile page will now include information you provided and the items in the cart can be purchased.
 After a cart has been purchased the order history will also be available on the profile page.
 
+As an admin user you have the ability to make changes to new orders, change product details or add new products.
+
+Admin account: 
+    Email: admin@homies.com
+    Password: password

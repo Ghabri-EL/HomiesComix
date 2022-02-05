@@ -31,26 +31,23 @@
                     </div>                  
                 </div>
             </div>
-        </div>
 
-        <table  align="center" id="detailsTable">
-            <tr>
-                <th class="detailsTitle" th:text="${product.title}">Product Name</th>
-                
-            </tr>
-            <tr>
-                <th class="detailsTitle" th:text="|&euro;${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}|"></th>
-            </tr>
-            <tr>
-                <td align="center">                    
-                        <label for="quantity">Quantity:</label>
+            <table  align="center" id="detailsTable">
+                <tr>
+                    <th class="detailsTitle" colspan="2" th:text="${product.title}">Product Name</th>
+                </tr>
+                <tr>
+                    <th class="detailsTitle" th:text="|&euro;${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}|"></th>
+                    <th align="center">                    
+                        <label for="quantity">Qty:</label>
                         <input type="number" id="quantity" name="quantity" min="1" max="5" value="1">                        
-                </td>
-            </tr>
-            <tr>
-                <td><button class="buttonDesignShadow" th:onclick="|addToCart(${product.id})|">Add to Cart</button></td>
-            </tr>
-        </table>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="2" ><button class="buttonDesignShadow" th:onclick="|addToCart(${product.id})|">Add to Cart</button></td>
+                </tr>
+            </table>
+        </div>
 
         <div class="detailDescription">
             <h3>Product Details</h3>

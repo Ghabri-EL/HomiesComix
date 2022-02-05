@@ -13,92 +13,95 @@
                 <p class="log_sign_err" th:case="'signfail'" th:text="${param.msg}"></p>
                 <p id="signup_ok" th:case="'success'" th:text="${param.msg}"></p>
             </th:block>
-            <div>
+            <div id="login_signup_imageWrapper">
                 <img src="images/login-img.jpg" alt="Shopping Cart">
             </div>
+
+            <div id="formsWrapper">
+                <div id="loginDiv">
+                    <form action="/login" method="POST">
+                        <table id="logInTbl">
+                            <thead>
+                                <tr>
+                                    <th>Log In</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><label for="login_email">Email</label></td>
+                                </tr>
+                                <tr>
+                                    <td> <input id="login_email" name="email" type="email" placeholder="Enter email address here..." required/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="login_psd">Password</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="login_psd" name="password" type="password" placeholder="Enter password here..." required/></td>
+                                </tr>
+                                <tr>
+                                    <td><button type="submit">Log In</button></td>
+                                </tr>                
+                            </tbody>
+                        </table>
+                    </form>    
+                </div>
         
-            <div id="loginDiv">
-                <form action="/login" method="POST">
-                    <table id="logInTbl">
-                        <thead>
-                            <tr>
-                                <th>Log In</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><label for="login_email">Email</label></td>
-                            </tr>
-                            <tr>
-                                <td> <input id="login_email" name="email" type="email" placeholder="Enter email address here..." required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="login_psd">Password</label></td>
-                            </tr>
-                            <tr>
-                                <td><input id="login_psd" name="password" type="password" placeholder="Enter password here..." required/></td>
-                            </tr>
-                            <tr>
-                                <td><button type="submit">Log In</button></td>
-                            </tr>                
-                        </tbody>
-                    </table>
-                </form>    
-            </div>
-    
-            <div id="signupDiv">
-                <form action="/signup" method="POST">
-                    <table id="signUpTbl">
-                        <thead>
-                            <tr>
-                                <th>Sign Up</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><label for="firstName">First Name</label></td>
-                            </tr>
-                            <tr>
-                                <td><input id="firstName" name="firstname" type="text" placeholder="Enter first name..." required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="surname">Surname</label></td>
-                            </tr>
-                            <tr>
-                                <td><input id="surname" name="surname" type="text" placeholder="Enter surname..." required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="reg_address">Address</label></td>
-                            </tr>
-                            <tr>
-                                <td><input id="reg_address" name="address" type="text" placeholder="Enter adress..." required/></td>
-                            </tr>                    
-                            <tr>
-                                <td><label for="reg_email">Email</label></td>
-                            </tr>
-                            <tr>
-                                <td> <input id="reg_email" name="email" type="email" placeholder="Enter email address here..." required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="reg_psd">Password</label></td>
-                            </tr>
-                            <tr>
-                                <td><input id="reg_psd" name="password" type="password" placeholder="Enter password here..." required/></td>
-                            </tr>
-                            <tr>
-                                <td><label for="reg_psd_conf">Confirm Password</label></td>
-                            </tr>
-                            <tr>
-                                <td><input id="reg_psd_conf" name="password_confirm" type="password" placeholder="Enter password to confirm..." required/></td>
-                            </tr>
-                            <tr>
-                                <td><button type="submit">Sign Up</button></td>
-                            </tr>  
-                        </tbody>
-                    </table>
-                </form>
+                <div id="signupDiv">
+                    <form action="/signup" method="POST">
+                        <table id="signUpTbl">
+                            <thead>
+                                <tr>
+                                    <th>Sign Up</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><label for="firstName">First Name</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="firstName" name="firstname" type="text" placeholder="Enter first name..." required/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="surname">Surname</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="surname" name="surname" type="text" placeholder="Enter surname..." required/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="reg_address">Address</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="reg_address" name="address" type="text" placeholder="Enter adress..." required/></td>
+                                </tr>                    
+                                <tr>
+                                    <td><label for="reg_email">Email</label></td>
+                                </tr>
+                                <tr>
+                                    <td> <input id="reg_email" name="email" type="email" placeholder="Enter email address here..." required/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="reg_psd">Password</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="reg_psd" name="password" type="password" placeholder="Enter password here..." required/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="reg_psd_conf">Confirm Password</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="reg_psd_conf" name="password_confirm" type="password" placeholder="Enter password to confirm..." required/></td>
+                                </tr>
+                                <tr>
+                                    <td><button type="submit">Sign Up</button></td>
+                                </tr>  
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
             </div>
         </div>
+        
     </div>
 
     <footer id="footer">

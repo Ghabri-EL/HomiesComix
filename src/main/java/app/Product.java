@@ -24,10 +24,10 @@ public class Product implements Serializable{
     @Column
     private double price;
 
-    @Column(length = 1000)
+    @Column(length = 2000)
     private String description;
 
-    @Column(length = 500)
+    @Column(length = 1000)
     private String photos;
 
     @OneToMany(mappedBy = "product")
@@ -97,6 +97,9 @@ public class Product implements Serializable{
     }
 
     public void setDescription(String description) {
+        if(description.length() > 2000){
+            description = description.substring(0, 2000);
+        }
         this.description = description;
     }
 

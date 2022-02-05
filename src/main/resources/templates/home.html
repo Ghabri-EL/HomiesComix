@@ -10,11 +10,11 @@
 <body>
     <nav th:fragment="navbar">
         <ul>
+            <li id="logo"><a href="/">StayAtHomies</a></li>
             <li><a class="cartImage" href="/cart"><img src="/images/cart.png" alt="Shopping Cart"></a></li>
            <li><a th:href="@{(${credentials == null} ? '/login_signup': '/logout')}" th:text="${credentials} ? 'LogOut' : 'Sign up/Login'"></a></li>
            <li><a href="/profile">Profile</a></li>
             <li><a href="/products">Products</a></li>
-            <li style="float: left"><a class ="logo" href="/">StayAtHomies</a></li>
         </ul>
     </nav>
     <div class="container" >

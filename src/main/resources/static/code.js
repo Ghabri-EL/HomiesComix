@@ -11,18 +11,21 @@ function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("demo");
-    var captionText = document.getElementById("caption");
+    var captionText = document.getElementById("caption");    
+
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
+        console.log()
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].style.height = slides[slideIndex-1].offsetWidth + "px";
     dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
+    captionText.innerHTML = dots[slideIndex-1].alt;   
 }
 //======== PRODUCTS PAGE ========
 function filterSelection(c) {
@@ -164,14 +167,10 @@ function addOneToCart(id){
 //creates a div to display a message, such as if a product has been added to the shopping cart
 function displayMessage(msg){
     var msgDiv= document.createElement("div");
-    msgDiv.id = "add_to_cart_msg";
-    var divStyle = "height: 25px; width: 100%; background-color:#08607a; color:white;\
-    position:fixed; bottom: 0; left: 0; right: 0; z-index: +1; text-align: center;\
-    border: white solid 1px; border-radius: 2px;"
-    msgDiv.style.cssText = divStyle;
+    msgDiv.id = "message_bar";
     msgDiv.innerHTML="<p>" + msg + "</p>"
     document.body.appendChild(msgDiv);
-    setTimeout(function (){document.getElementById("add_to_cart_msg").remove();}, 3000);
+    setTimeout(function (){document.getElementById("message_bar").remove();}, 3000);
 }
 
 function removeProduct(id){
@@ -284,3 +283,6 @@ function hideProductResponse(){
     removeEditOverlay();
     displayMessage(response);
 }
+
+//======== Home page ===========
+

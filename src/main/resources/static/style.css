@@ -25,6 +25,7 @@ html, body{
     transition: linear .15s;
     border: rgb(49, 49, 49) solid 2px;
     border-radius: 4px;
+    width: 100%;
 }
 .buttonDesignShadow:hover{
     box-shadow: #023246 1px 1px 7px;    
@@ -33,6 +34,9 @@ html, body{
 /*Top nav bar Roland*/
 /*-----------------NAVBAR-----------------*/
 /*Nav choices*/
+nav{
+    background-color: #023246;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -41,7 +45,7 @@ ul {
     background-color: #023246;
 }
 
-li {
+li{
     float: right;
 }
 
@@ -57,15 +61,15 @@ li a {
 li a:hover {background-color: #111;}
 
 /*Image in upper left clickable home button*/
-.logo {
+#logo {
     float: left;
+    background-color: #023246;
     color: #D4D3CE;
     font-family: 'Abhaya Libre';
     font-size: 20px;
-    text-decoration: none;
 }
 
-.logo a:hover {background-color: #023246;}
+#logo:hover {background-color: #023246;}
 
 /*Shopping cart image clickable*/
 .cartImage img{
@@ -78,12 +82,15 @@ li a:hover {background-color: #111;}
 /*Table width home page*/
 .container {
     background-color: #D4D3CE;
-    overflow: auto;
+    overflow-x: auto;
+    min-height: 100%;
+    width: 100%;
 }
 
 .mainContainer {
     width: 80%;
     margin: auto;
+    border-spacing: 15px;  
 }
 /*text on top of table*/
 .latestProductsTxt {
@@ -96,13 +103,15 @@ li a:hover {background-color: #111;}
 /*width of table columns for latest product*/
 .latestProductCol {
     width: 20%;
+    height: 200px;
     padding: 5px;
+    background-color: white;
+    border-radius: 3px;
 }
 
 /*Image overlay on the products to display title and price*/
 .hover-img {
     display: inline-block;
-    margin: 8px;
     max-width: 320px;
     min-width: 250px;
     overflow: hidden;
@@ -155,10 +164,6 @@ li a:hover {background-color: #111;}
 }
 
 /*CONTAINER STYLE*/
-.container{
-    min-height: 100%;
-    width: 100%;
-}
 
 #in_store_text{
     width: 100%;
@@ -176,12 +181,12 @@ li a:hover {background-color: #111;}
     flex-wrap: wrap;
     background-color: #f0f0f0;
     height: auto;
-    width: 70%;
+    width: 90%;
     margin: 100px auto 0px;
     align-items: center;
     border-radius: 10px;
     border: 2px solid #023246;
-    overflow: auto;
+    margin-bottom: 50px;
 }
 
 .login_signupContainer table{
@@ -199,7 +204,7 @@ li a:hover {background-color: #111;}
 }
 
 .login_signupContainer button{
-    float:right;
+    width: 100%;
     padding: 10px 28px;
     margin: 7px 2px;
     cursor: pointer;
@@ -209,16 +214,32 @@ li a:hover {background-color: #111;}
     background-color: #0F3C5C;
     color: white;
     transition: linear .2s;
+    letter-spacing: 2px;
 }
 
 .login_signupContainer img{
-    width: 420px;
+    width: 100%;
+    padding: 15px;
     padding-right: 20px;
     border-radius: 5px;
 }
 
+#login_signup_imageWrapper{
+    flex: 2 1 40%;
+    max-width: 800px;
+}
+
+#formsWrapper{
+    flex: 2 2 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .login_signupContainer button:hover{
     text-shadow: #f1f1f1 2px 2px 3px;
+    letter-spacing: 4px;
 }
 
 .login_signupContainer label{
@@ -249,10 +270,20 @@ li a:hover {background-color: #111;}
 }
 
 /*======== NEW DETAILS PAGE ========*/
+
+/*container that wraps all of the content block elements on the page*/
+.detailContainer {
+    background-color: #f0f0f0;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2%;
+}
+
 .productsContainer{
-    width:60%;
-    float: left;
-    padding: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 * {
     box-sizing: border-box;
@@ -264,7 +295,18 @@ img {
 
 /* Container for arrows positioning */
 .arrowArea {
+    height: 60%;
+    min-height: 60%;
+    min-width: 400px;
+    flex: 2 1 70%;
+    overflow-y: hidden;
     position: relative;
+    padding: 5%;
+}
+
+.mySlides{
+    background-color: white;
+    overflow: hidden;
 }
 
 /* Add a pointer when hovering over the thumbnail images */
@@ -279,17 +321,15 @@ img {
     top: 40%;
     width: auto;
     padding: 16px;
-    margin-top: -50px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 20px;
-    /*border-radius: 0 3px 3px 0;*/
     user-select: none;
 }
 
 /* Position the "next button" to the right */
 .next {
-    right: 0;
+    right: 7%;
     border-radius: 3px 0 0 3px;
 }
 
@@ -306,7 +346,6 @@ img {
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
-    top: 0;
 }
 
 /* Container for image text */
@@ -351,28 +390,20 @@ img {
     white-space: pre-wrap;
 }
 
-/*container that wraps all of the content block elements on the page*/
-.detailContainer {
-    background-color: #f0f0f0;
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 2%;
-}
 /*right side of page with info*/
 #detailsTable{
-    width: 30%;
-    float: left;
-    margin-top: 10%;
-}
-#detailsTable td{
-    float: right;
+    flex: 2 0 30%;
     margin-top: 5%;
+    max-height: 15%;
+    height: 15%;
+    table-layout:fixed;
 }
+
 /*title text*/
 .detailsTitle {
     font-size: 35px;
     padding: 10px 0 10px 0;
+    word-wrap:break-word; 
 }
 
 #quantity{
@@ -381,7 +412,9 @@ img {
     border: none;
     border-radius: 4px;
     padding-left: 5px;
+    font-size: 16px;
 }
+
 /*width of both columns beside image*/
 .detailCol {
     width: 50%;
@@ -842,7 +875,7 @@ h4 {
 
 /* Overall container */
 .cart_container{
-    width: 80%;
+    width: 97%;
     margin: auto;
     background-color: white;
     display: flex;
@@ -861,9 +894,8 @@ h4 {
 
 /* Item panels container*/
 .cart_items_panels{
-    width:  75%;
     min-width: 400px;
-    flex-grow: 1;
+    flex: 2 2 80%;
     padding: 1%;
     margin: 1%;
     box-shadow: rgb(224, 224, 224) 1px 1px 5px;
@@ -875,21 +907,25 @@ h4 {
     margin-bottom: 20px;
     border-radius: 4px;
     display: flex;
+    font-size: 20px;
 }
 /* Item image style*/
 .cart_item_img{
     max-width: 15%;
     padding: 2px;
+    display: flex;
+    align-items: center;
 }
 .cart_item_img img{
     width: 100%;
+    vertical-align: middle;
 }
 
 /* Details of the style container and its elements*/
 .cart_item_details{
     display: flex;
     width: 80%;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 10px 10px;
     justify-content:space-around;
     align-items: baseline;
     flex-wrap: wrap;
@@ -899,19 +935,22 @@ h4 {
     flex-basis: 100%;
     width: 100%;
     font-weight: 600;
+    font-size: 150%;
 }
 .cart_item_qty input{
-    width: 40px;
-    height: 25px;
+    min-width: 45px;
+    height: 35px;
     border: white solid 1px;
     border-radius: 4px;
     background-color:#023246;
     color:white;
     padding: 4px;
+    text-align: center;
+    font-size: 18px;
 }
 
 #item_remove_btn{
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
     font-family: 'Abhaya Libre';
     text-align: center;
@@ -924,13 +963,11 @@ h4 {
 
 /* Side panel*/
 #cart_sidepanel{
-    width: 20%;
-    min-width: 170px;
-    max-width: 50%;
-    max-height: 200px;
+    flex: 2 1 15%;
+    min-width: 250px;
+    max-height: 300px;
     margin: 1%;
-    padding: 1%;
-    flex-grow: 1;
+    padding: 2%;
     box-shadow: rgb(224, 224, 224) 1px 1px 5px;
     border-radius: 4px;
     display: flex;
@@ -938,6 +975,10 @@ h4 {
     align-items: center;
     align-content:center;
     flex-flow: column wrap;
+}
+
+#cart_sidepanel h3{
+    padding: 20px;
 }
 
 #checkout_button{
@@ -1037,3 +1078,22 @@ h4 {
     background-color: #131313;
 }
 /* ========== END CHECKOUT OVERLAY STYLE ==========*/
+
+
+/* ========== BOTTOM MESSAGE BAR STYLE ==========*/
+#message_bar{
+    height: 30px;
+    width: 100%;
+    padding: 5px; 
+    background-color: rgba(0, 0, 0, 0.534); 
+    color:white;
+    position:fixed; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    z-index: +1; 
+    text-align: center;
+    border: rgba(255, 255, 255, 0.178) solid 1px; 
+    border-radius: 1px;
+    backdrop-filter: blur(5px);
+}
